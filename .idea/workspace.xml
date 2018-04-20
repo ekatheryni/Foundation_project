@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="420a7dde-5d8f-4cad-b330-b76b3a149b2e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -74,8 +73,8 @@
         <option value="$PROJECT_DIR$/css/services.css" />
         <option value="$PROJECT_DIR$/css/booking.css" />
         <option value="$PROJECT_DIR$/css/booknow.css" />
-        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/app.js" />
       </list>
     </option>
   </component>
@@ -281,12 +280,12 @@
       <workItem from="1524135922132" duration="3990000" />
       <workItem from="1524140888791" duration="8587000" />
       <workItem from="1524228231431" duration="2095000" />
-      <workItem from="1524238348994" duration="1967000" />
+      <workItem from="1524238348994" duration="2071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32639000" />
+    <option name="totallyTimeSpent" value="32743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
