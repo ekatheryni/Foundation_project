@@ -1,0 +1,25 @@
+.login-box{
+    width: 75%;
+    height: auto;
+}
+
+.login-box .login-box-title{
+    font-weight: 200;
+    font-size: x-large;
+    color: #09aff6;
+}
+
+.login-box-input{
+    border-radius: 5000px;
+    width: 700px;
+}
+
+.login-box-submit-button{
+    background-color: #099ddd;
+    color: white;
+    border-radius: 5000px;
+}
+
+.menu-email-check, .menu-code-check, .menu-date-check{
+    padding: 0.5rem 1rem 1rem 1rem;
+}
