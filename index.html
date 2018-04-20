@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
   <link rel="stylesheet" href="css/logo&book.css">
   <link rel="stylesheet" href="css/booknow.css">
-  <link rel="stylesheet" href="js/vendor/jquery.datetimepicker.min.css">
+  <link rel="stylesheet" type="text/css" href="js/datatimepicker/jquery.datetimepicker.min.css"/>
 
   <style>
      body{
@@ -135,16 +135,21 @@
             <input class="login-box-input" type="text" name="text" placeholder="Code" />
             <input class="login-box-submit-button" type="submit" name="code_submit" value="Submit" />
           </ul>
-          <ul class="menu menu-date-check">
-            <input id="datetime" class="login-box-input"/>
-            <input class="login-box-submit-button" type="submit" name="date_submit" value="Submit" />
-          </ul>
+          <div id="filters">
+            <form method="post" action="?">
+              <div class="menu menu-title-check">
+                <label class="login-box-title" for="filter-date">Choose date and time</label>
+              </div>
+              <div class="menu menu-date-check">
+                <input class="login-box-input" type="text" name="filter-date" id="filter-date"/>
+                <input class="login-box-submit-button" type="submit" value="Submit"/>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-
 
   <!-- gallery -->
 
@@ -157,7 +162,6 @@
 
 
   <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/jquery.datetimepicker.js"></script>
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.js"></script>
   <script type="text/javascript" src="js/vendor/foundation.min.js"></script>
@@ -166,6 +170,9 @@
   </script>
 
   <script type="text/javascript" src="js/app.js"></script>
+
+  <script src="js/datatimepicker/jquery.datetimepicker.full.js"></script>
+
 
 </body>
 </html>

@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="420a7dde-5d8f-4cad-b330-b76b3a149b2e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/css/booknow.css" afterPath="$PROJECT_DIR$/css/booknow.css" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/jquery.datetimepicker.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/jquery.datetimepicker.min.css" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,21 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="167" column="58" lean-forward="false" selection-start-line="167" selection-start-column="58" selection-end-line="167" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+            <state relative-caret-position="477">
+              <caret line="150" column="10" lean-forward="true" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -72,9 +67,10 @@
         <option value="$PROJECT_DIR$/css/logo&amp;book.css" />
         <option value="$PROJECT_DIR$/css/services.css" />
         <option value="$PROJECT_DIR$/css/booking.css" />
+        <option value="$PROJECT_DIR$/input_in_container_fixed_to_bottom_of_viewport.html" />
+        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/css/booknow.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/app.js" />
       </list>
     </option>
   </component>
@@ -109,7 +105,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,7 +117,18 @@
             <path>
               <item name="foundation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="foundation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="foundation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="datatimepicker" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="foundation" type="b2602c69:ProjectViewProjectNode" />
@@ -132,8 +140,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -146,11 +153,12 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/css/image" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/css/image" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -280,12 +288,13 @@
       <workItem from="1524135922132" duration="3990000" />
       <workItem from="1524140888791" duration="8587000" />
       <workItem from="1524228231431" duration="2095000" />
-      <workItem from="1524238348994" duration="2071000" />
+      <workItem from="1524238348994" duration="2800000" />
+      <workItem from="1524244820051" duration="1417000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32743000" />
+    <option name="totallyTimeSpent" value="34889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -330,14 +339,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -557,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/booknow.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/vendor/what-input.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4790">
@@ -577,31 +571,48 @@
         <state relative-caret-position="449">
           <caret line="3872" column="0" lean-forward="true" selection-start-line="3872" selection-start-column="0" selection-end-line="3872" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/vendor/jquery.datetimepicker.full.js">
+    <entry file="file://$PROJECT_DIR$/js/vendor/jquery.datetimepicker.full.js" />
+    <entry file="file://$PROJECT_DIR$/js/vendor/jquery.datetimepicker.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9204">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/input_in_container_fixed_to_bottom_of_viewport.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="167" column="58" lean-forward="false" selection-start-line="167" selection-start-column="58" selection-end-line="167" selection-end-column="58" />
+        <state relative-caret-position="610">
+          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        <state relative-caret-position="45">
+          <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/booknow.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="150" column="10" lean-forward="true" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="10" />
           <folding />
         </state>
       </provider>
