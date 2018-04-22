@@ -2,6 +2,11 @@ jQuery(document).ready(function () {
     'use strict';
     jQuery('#filter-date').datetimepicker();
 
+    var Templates = require('./template');
+
+
+
+
     $('#submit-service').click(oknoAppears);
 
     var $CLIENT_TEMPLATE = $('.login-box').html();
@@ -17,7 +22,20 @@ jQuery(document).ready(function () {
         var client_name = $CLIENT_NAME.val();
         var client_date = $CLIENT_DATE.getDate();
         var client_time = $CLIENT_DATE.getTime();
-        ывапролджэ
+
+        var client={
+            name: client_name,
+            date: client_date,
+            time: client_time
+            //service: service
+        };
+
+        var html_code = Templates.client_submit({client: client});
+
+        var $node = $(html_code);
+
+     //   $whereToAppend.append($node);
+
     }
 
 });
