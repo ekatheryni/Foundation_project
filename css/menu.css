@@ -1,3 +1,11 @@
+.top-bar-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    opacity: 0.9;
+}
 
 .menu-hover-lines {
     padding: 0.2rem;
