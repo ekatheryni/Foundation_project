@@ -17,6 +17,7 @@ jQuery(document).ready(function () {
         var client_name = $CLIENT_NAME.val();
         var client_date = $CLIENT_DATE.getDate()
         var client_time = $CLIENT_DATE.getTime();
+        ывапролджэ
     }
 
 });
