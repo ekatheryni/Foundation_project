@@ -1,4 +1,5 @@
 .login-box{
+    margin-left: 10%;
     width: 75%;
     height: auto;
 }
@@ -15,12 +16,59 @@
     width: 700px;
 }
 
+
 .login-box-submit-button{
+    width: 100px;
     background-color: #099ddd;
     color: white;
     border-radius: 5000px;
+    margin-left: 1%;
 }
 
-.menu-email-check, .menu-code-check, .menu-date-check{
+.login-box-submit-button:hover{
+    background-color: #0985c1;
+}
+
+.menu-email-check, .menu-code-check, .menu-date-check , .menu-data-check{
     padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.zatemnenie {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.okno {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    color: #0985c1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: #ffffff;
+}
+.zatemnenie:target {display: block;}
+
+.close-okno {
+    display: inline-block;
+    color: #fdfdfd;
+    padding: 0 12px;
+    margin: 10px;
+    background: #099ddd;
+    font-size: 14pt;
+    border-radius: 5000px;
+}
+.close-okno:hover {
+    background: #097eb4;
+    color: #fdfdfd;
 }
