@@ -15,7 +15,7 @@ jQuery(document).ready(function () {
 
     function oknoAppears() {
         var client_name = $CLIENT_NAME.val();
-        var client_date = $CLIENT_DATE.getDate()
+        var client_date = $CLIENT_DATE.getDate();
         var client_time = $CLIENT_DATE.getTime();
         ывапролджэ
     }
