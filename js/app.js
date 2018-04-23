@@ -1,42 +1,17 @@
-jQuery(document).ready(function () {
-    'use strict';
-    jQuery('#filter-date').datetimepicker();
+$(function () {
 
-    var Templates = require('./template');
+    $('#filter-date').datetimepicker();
 
+    //console.log("ready");
 
+    $('#submit-service').click(function () {
+       // console.log("ready1");
 
-
-    $('#submit-service').click(oknoAppears);
-
-    var $CLIENT_TEMPLATE = $('.login-box').html();
-
-    var $CLIENT_EMAIL = $('#client-email');
-    var $CLIENT_CODE = $('#client-code');
-    var $CLIENT_DATE = $('#filter-date');
-    var $CLIENT_NAME = $('#client-name');
-
-    var $NAME_INPUT = $('.client-name-submit');
-
-    function oknoAppears() {
-        var client_name = $CLIENT_NAME.val();
-        var client_date = $CLIENT_DATE.getDate();
-        var client_time = $CLIENT_DATE.getTime();
-
-        var client={
-            name: client_name,
-            date: client_date,
-            time: client_time
-            //service: service
-        };
-
-        var html_code = Templates.client_submit({client: client});
-
-        var $node = $(html_code);
-
-     //   $whereToAppend.append($node);
-
-    }
+        var input = $('#client-name').val();
+        $("#welcome-name").text(input);
+        var date_input = $('#filter-date').val();
+        $('#welcome-date').text(date_input);
+    });
 
 });
 
