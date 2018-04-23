@@ -13,3 +13,67 @@
     -ms-flex-align: center;
     align-items: center;
 }
+
+
+.social-icon-button {
+    border-radius: 3.6rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: 2rem;
+    background: none;
+}
+
+.social-icon-button + .social-icon-button {
+    margin-left: 0.25rem;
+}
+
+.social-icon-button .fa {
+    background: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    line-height: 3.6rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon-button span {
+    display: block;
+    border-radius: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon-button:hover .fa {
+    color: #fefefe;
+}
+
+.social-icon-button:hover span {
+    display: block;
+    border-radius: 3.6rem;
+    width: 3.6rem;
+    height: 3.6rem;
+}
+
+.social-icon-button.facebook {
+    color: #3b5998;
+}
+
+.social-icon-button.facebook span {
+    background-color: #3b5998;
+}
+
+
