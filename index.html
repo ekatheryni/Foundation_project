@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
-
-<html class="no-js" lang="en">
-
+<html lang="en" class="no-js">
 <head>
 
     <meta charset="utf-8">
@@ -13,25 +10,21 @@
 
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/services.css">
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="css/logo&book.css">
     <link rel="stylesheet" href="css/booknow.css">
     <link rel="stylesheet" type="text/css" href="js/datatimepicker/jquery.datetimepicker.min.css"/>
 
-    <style>
-        body {
-            background: url(css/image/background.jpg) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    </style>
+    <!-- LESS основний файл -->
+    <link rel="stylesheet/less" type="text/css" href="css/styles.less"/>
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
+    <!-- jQuery JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 </head>
-
 <body>
 
 <!-- top-bar-->
@@ -149,8 +142,22 @@
                 <div class="menu menu-data-check">
                     <input class="login-box-input" type="text" id="client-name"
                            placeholder="Write your name"/>
-                    <input class="login-box-submit-button" type="submit" id="submit-service" value="Submit"/>
+                    <a href="#main"><input class="login-box-submit-button" type="submit" id="submit-service"
+                                           value="Submit" /></a>
+
                 </div>
+                <a href="#" id="main">
+                    <div id="okno">
+                        <p id="welcome-name">
+                        </p>
+                        <p>We are waiting for you</p>
+                        <p id="welcome-date"> on
+                        </p>
+                        <!-- <p> for your <%= client.service %> </p> -->
+                    </div>
+                </a>
+
+
             </div>
         </div>
     </div>
@@ -163,11 +170,16 @@
 <!-- contacts -->
 
 <!-- footer -->
+<div class="footer">
+    <div class="footer-inside">
+
+
+    </div>
+</div>
 
 <!-- include before </body> tag -->
 
 
-<script src="js/vendor/jquery.js"></script>
 <script src="js/vendor/what-input.js"></script>
 <script src="js/vendor/foundation.js"></script>
 <script type="text/javascript" src="js/vendor/foundation.min.js"></script>

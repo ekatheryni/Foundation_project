@@ -1,24 +1,17 @@
-jQuery(document).ready(function () {
-    'use strict';
-    jQuery('#filter-date').datetimepicker();
+$(function () {
 
-    $('#submit-service').click(oknoAppears);
+    $('#filter-date').datetimepicker();
 
-    var $CLIENT_TEMPLATE = $('.login-box').html();
+    //console.log("ready");
 
-    var $CLIENT_EMAIL = $('#client-email');
-    var $CLIENT_CODE = $('#client-code');
-    var $CLIENT_DATE = $('#filter-date');
-    var $CLIENT_NAME = $('#client-name');
+    $('#submit-service').click(function () {
+       // console.log("ready1");
 
-    var $NAME_INPUT = $('.client-name-submit');
-
-    function oknoAppears() {
-        var client_name = $CLIENT_NAME.val();
-        var client_date = $CLIENT_DATE.getDate()
-        var client_time = $CLIENT_DATE.getTime();
-        ывапролджэ
-    }
+        var input = $('#client-name').val();
+        $("#welcome-name").text(input);
+        var date_input = $('#filter-date').val();
+        $('#welcome-date').text(date_input);
+    });
 
 });
 
