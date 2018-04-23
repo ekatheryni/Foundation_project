@@ -72,7 +72,7 @@
     color: #3b5998;
 }
 
-.social-icon-button.facebook span {
+.social-icon-button.facebook:hover {
     background-color: #3b5998;
 }
 
