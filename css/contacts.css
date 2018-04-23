@@ -1,13 +1,29 @@
 .contacts {
-    background: #ffffff;
+    background: #48274f;
     box-sizing: content-box;
+    display: flex;
 }
-.contacts  .google-maps {
+
+.contacts .google-maps {
     width: 50%;
     display: inline-block;
+    float: left;
 }
 
 .contacts .contact-info {
     width: 50%;
     display: inline-block;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.contacts .contact-info h3 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.contacts .contact-info .contacts-text {
+    color: #ccc;
+    font-size: 14px;
 }
