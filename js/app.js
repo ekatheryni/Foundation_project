@@ -1,7 +1,8 @@
 $(function () {
 
-    $('#filter-date').datetimepicker();
+    //DATE-TIME-PICKER
 
+    $('#filter-date').datetimepicker();
 
     $('#submit-service').click(function () {
         // console.log("ready1");
@@ -10,6 +11,10 @@ $(function () {
         var date_input = $('#filter-date').val();
         $('#welcome-date').text(date_input);
     });
+
+    //DATE-TIME-PICKER END!
+
+    // GOOGLE MAPS
 
     function initialize() {
 //Тут починаємо працювати з картою
@@ -29,13 +34,52 @@ $(function () {
             title: "We are here!"
         });
 
-        marker.setMap(map);
-
 //Карта створена і показана
     }
 
 //Коли сторінка завантажилась
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    // GOOGLE MAPS END!
+
+    // SCROLL BUTTONS
+
+    $('.about-click').click(function () {
+        $('html,body').animate({
+                scrollTop: $('.about-us').offset().top - 90
+            },
+            'slow');
+    });
+
+    $('.services-click').click(function () {
+        $('html,body').animate({
+                scrollTop: $('.services').offset().top - 90
+            },
+            'slow');
+    });
+
+    $('.gallery-click').click(function () {
+        $('html,body').animate({
+                scrollTop: $('.gallery').offset().top - 90
+            },
+            'slow');
+    });
+
+    $('.contacts-click').click(function () {
+        $('html,body').animate({
+                scrollTop: $('.contacts').offset().top - 90
+            },
+            'slow');
+    });
+
+    $('.book-click').click(function () {
+        $('html,body').animate({
+                scrollTop: $('.book-now').offset().top - 90
+            },
+            'slow');
+    });
+
+    // SCROLL BUTTONS END!
 
 });
 
