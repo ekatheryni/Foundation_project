@@ -1,6 +1,6 @@
 .footer {
     background: #000000;
-    color: #8aa0ae;
+    color: #ccc;
     width: 100%;
     height: 3.778rem;
     display: -webkit-flex;
@@ -8,70 +8,68 @@
     display: flex;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    /*justify-content: center;*/
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
 }
 
-
-.social-icon-button {
-    border-radius: 3.6rem;
-    width: 3.6rem;
-    height: 3.6rem;
-    position: relative;
-    display: inline-block;
+.rounded-social-buttons {
     text-align: center;
-    font-size: 2rem;
-    background: none;
 }
 
-.social-icon-button + .social-icon-button {
-    margin-left: 0.25rem;
-}
-
-.social-icon-button .fa {
-    background: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    line-height: 3.6rem;
-    transition: all 0.3s ease-in-out;
-}
-
-.social-icon-button span {
-    display: block;
-    border-radius: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease-in-out;
-}
-
-.social-icon-button:hover .fa {
+.rounded-social-buttons .social-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 3.125rem;
+    height: 3.125rem;
+    border: 0.125rem solid transparent;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
     color: #fefefe;
+    font-size: 1.5625rem;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 1.6875rem;
+    transition: all 0.5s ease;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
-.social-icon-button:hover span {
-    display: block;
-    border-radius: 3.6rem;
-    width: 3.6rem;
-    height: 3.6rem;
+.rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 
-.social-icon-button.facebook {
+.rounded-social-buttons .social-button.facebook {
+    background: #3b5998;
+}
+
+.rounded-social-buttons .social-button.facebook:before {
+    font-family: "FontAwesome";
+    content: "";
+}
+
+.rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
     color: #3b5998;
+    background: #fefefe;
+    border-color: #3b5998;
 }
 
-.social-icon-button.facebook span {
-    background-color: #3b5998;
+.rounded-social-buttons .social-button.instagram {
+    background: #125688;
+}
+
+.rounded-social-buttons .social-button.instagram:before {
+    font-family: "FontAwesome";
+    content: "";
+}
+
+.rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+    color: #125688;
+    background: #fefefe;
+    border-color: #125688;
 }
