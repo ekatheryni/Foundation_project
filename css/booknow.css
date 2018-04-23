@@ -4,9 +4,13 @@
     height: auto;
 }
 
+.menu{
+    display: flex;
+}
+
 .login-box-input{
     border-radius: 5000px;
-    width: 700px;
+    width: 400px;
 }
 
 .login-box-title{
@@ -21,6 +25,7 @@
     color: white;
     border-radius: 5000px;
     margin-left: 1%;
+    float: left;
 }
 
 .login-box-submit-button:hover{
