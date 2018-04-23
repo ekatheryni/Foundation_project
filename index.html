@@ -8,10 +8,10 @@
 
     <title>Blink</title>
 
+    <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/booknow.css">
     <link rel="stylesheet" href="css/contacts.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.min.css"/>
     <link rel="stylesheet" href="css/logo&book.css">
     <link rel="stylesheet" href="css/menu.css">
@@ -149,11 +149,12 @@
 
 <!-- contacts -->
 <div class="contacts">
-    <div class="google-maps">
-        blabla
-    </div>
+    <div class="google-maps" id="googleMap"></div>
     <div class="contact-info">
-        blabla
+        <h3>Contacts</h3>
+        <div class="contacts-text">
+            <span>bla bla</span>
+        </div>
     </div>
 </div>
 
@@ -166,6 +167,8 @@
 
 <!-- include before </body> tag -->
 
+<script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA51K1_zpFZmD_yD_JpZfqVzXcNds-CsSE"></script>
 
 <script src="js/vendor/what-input.js"></script>
 <script src="js/vendor/foundation.js"></script>
