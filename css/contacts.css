@@ -1,18 +1,13 @@
 .contacts {
-    width: 100%;
-    height: 100px;
     background: #ffffff;
     box-sizing: content-box;
-    position: absolute;
 }
 .contacts  .google-maps {
-    position: relative;
     width: 50%;
     display: inline-block;
 }
 
 .contacts .contact-info {
-    position: relative;
     width: 50%;
     display: inline-block;
 }
