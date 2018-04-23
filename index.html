@@ -31,7 +31,8 @@
         <div class="top-bar">
             <div class="top-bar-left">
                 <ul class="menu menu-hover-lines">
-                    <li class="hide-for-small-only"><a href="#">Book Now</a></li>
+                    <li href="#" class="hide-for-small-only" data-open="mobile-ios-modal-1"><a href="#">Book Now</a>
+                    </li>
                     <!-- <li class="show-for-small-only"><a href="#"><i class="fi-book"></i></a></li> -->
                 </ul>
             </div>
@@ -112,33 +113,37 @@
                         </figcaption>
                     </figure>
                 </li>
-
             </ul>
         </div>
     </div>
 </div>
 
 <!-- book now-->
-<div class="login-box">
-    <div class="login-box-form-section">
-        <h4 class="login-box-title"><b>Book now</b></h4>
-        <div class="menu menu-email-check">
-            <input class="login-box-input" type="email" id="client-email" placeholder="E-mail"/>
-            <input class="login-box-submit-button" type="submit" id="email_submit" value="Get Code"/>
-        </div>
-        <div class="menu menu-code-check">
-            <input class="login-box-input" type="text" id="id-client-code" placeholder="Code"/>
-            <input class="login-box-submit-button" type="submit" id="code_submit" value="Submit"/>
-        </div>
-        <div class="menu menu-date-check">
-            <input class="login-box-input" type="text" id="filter-date"
-                   placeholder="Click to choose date and time"/>
-        </div>
-        <div class="menu menu-data-check">
-            <input class="login-box-input" type="text" id="client-name"
-                   placeholder="Write your name"/>
-            <a href="#"><input class="login-box-submit-button" type="submit" id="submit-service"
-                               value="Submit"/></a>
+
+<div class="reveal mobile-ios-modal" id="mobile-ios-modal-1" data-reveal>
+    <div class="mobile-ios-modal-inner">
+        <div class="login-box">
+            <div class="login-box-form-section">
+                <h4 class="login-box-title"><b>Book now</b></h4>
+                <div class="menu menu-email-check">
+                    <input class="login-box-input" type="email" id="client-email" placeholder="E-mail"/>
+                    <input class="login-box-submit-button" type="submit" id="email_submit" value="Get Code"/>
+                </div>
+                <div class="menu menu-code-check">
+                    <input class="login-box-input" type="text" id="id-client-code" placeholder="Code"/>
+                    <input class="login-box-submit-button" type="submit" id="code_submit" value="Submit"/>
+                </div>
+                <div class="menu menu-date-check">
+                    <input class="login-box-input" type="text" id="filter-date"
+                           placeholder="Click to choose date and time"/>
+                </div>
+                <div class="menu menu-data-check">
+                    <input class="login-box-input" type="text" id="client-name"
+                           placeholder="Write your name"/>
+                    <a href="#"><input class="login-box-submit-button" type="submit" id="submit-service"
+                                       value="Submit"/></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
