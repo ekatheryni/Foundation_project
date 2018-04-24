@@ -82,7 +82,7 @@ $(function () {
     // SCROLL BUTTONS END!
 
     // API
-    var API_URL = "http://localhost:5050";
+    var API_URL = "http://localhost:63342";
 
     function backendGet(url, callback) {
         $.ajax({
