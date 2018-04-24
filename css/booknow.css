@@ -1,31 +1,109 @@
-.login-box{
+.login-box {
     margin-left: 10%;
     width: 75%;
     height: auto;
 }
 
-.login-box-input{
-    border-radius: 5000px;
-    width: 700px;
+.menu {
+    display: flex;
 }
 
-.login-box-title{
+.login-box-input {
+    border-radius: 5000px;
+    width: 400px;
+}
+
+.login-box-title {
     font-weight: 200;
     font-size: x-large;
     color: #09aff6;
 }
 
-.login-box-submit-button{
+.login-box-submit-button {
     width: 100px;
     background-color: #099ddd;
     color: white;
     border-radius: 5000px;
     margin-left: 1%;
+    float: left;
 }
 
-.login-box-submit-button:hover{
+.login-box-submit-button:hover {
     background-color: #0985c1;
 }
-.menu-email-check, .menu-code-check, .menu-date-check, .menu-data-check{
+
+.menu-email-check, .menu-code-check, .menu-date-check, .menu-data-check {
     padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.services-menu {
+    display: flex;
+    /*margin-bottom: 5px;*/
+    margin-top: 5px;
+    text-align: center
+}
+
+.services-menu .services-menu-inside{
+    width: 100%;
+    margin: auto;
+}
+
+.services-menu .services-menu-inside .button{
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5px!important;
+}
+
+.button-rounded-hover {
+    border: 0;
+    border-radius: 5000px;
+    padding:  5px 10px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all 0.35s ease;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.button-rounded-hover:before {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-radius: inherit;
+    background-color: #fefefe;
+    transition: all 0.3s;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.button-rounded-hover:after {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border: 3px solid #115b8d;
+    content: '';
+    border-radius: inherit;
+}
+
+.button-rounded-hover:hover,
+.button-rounded-hover:focus {
+    background-color: #115b8d;
+}
+
+.button-rounded-hover:hover:before,
+.button-rounded-hover:focus:before {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+    opacity: 0.25;
 }
