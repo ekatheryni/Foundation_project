@@ -2,12 +2,29 @@ $(function () {
 
     //DATE-TIME-PICKER
 
+    var logic = function (currentDateTime) {
+        // 'this' is jquery object datetimepicker
+        if (currentDateTime.getDay() == 6) {
+            this.setOptions({
+                minTime: '11:00'
+            });
+        } else
+            this.setOptions({
+                minTime: '8:00'
+            });
+    };
+
+
     var $filterDate = $('#filter-date');
 
-    $filterDate.datetimepicker();
+    $filterDate.datetimepicker({
+        onChangeDateTime: logic,
+        onShow: logic,
+        maxDate:'+1970/02/02'
+    });
 
     //DATE-TIME-PICKER END!
-
+    //////////////////////////////////////////////////////////////////////////////////////
     // GOOGLE MAPS
 
     function initialize() {
@@ -35,7 +52,7 @@ $(function () {
     google.maps.event.addDomListener(window, 'load', initialize);
 
     // GOOGLE MAPS END!
-
+    /////////////////////////////////////////////////////////////////////////////////////////////
     // SCROLL BUTTONS
 
     $('.about-click').click(function () {
@@ -74,7 +91,7 @@ $(function () {
     });
 
     // SCROLL BUTTONS END!
-
+    ///////////////////////////////////////////////////////////////////////////////////////////
     // API
     var API_URL = "http://localhost:63342";
 
@@ -91,35 +108,72 @@ $(function () {
         })
     }
 
-    function backendPost(url, data, callback) {
+    function backendPost(url, data) {
         $.ajax({
-            url: API_URL + url,
+            url: url,
             type: 'POST',
+            method: "post",
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (data) {
-                callback(null, data);
+                console.log("success post");
+                // callback(null, data);
             },
             error: function () {
-                callback(new Error("Ajax Failed"));
+                // callback(new Error("Ajax Failed"));
+                console.log("error post");
             }
         })
     }
 
     // API END!
-
+    ////////////////////////////////////////////////////////////////////////
     // BOOKING
 
-    function validateMail(mail) {
+    var service;
 
+    $('#nails-service, #brows-service, #makeup-service').click(function () {
+        if (this.id == 'nails-service') {
+            service = "Nails";
+        }
+        else if (this.id == 'brows-service') {
+            service = "Brows";
+        }
+        else if (this.id == 'makeup-service') {
+            service = "MakeUp";
+        }
+        console.log(service);
+    });
+
+    var email;
+
+    function validateMail(mail) {
+        email = mail;
+        var val = {mail: mail};
+        backendPost(url, val);
     }
 
     function checkCode(code) {
-
+        var val = {
+            email: email,
+            code: code
+        };
+        backendPost(url, val)
     }
 
-    function bookClient(name, date) {
-
+    function bookClient(name, phone, date, time) {
+        var client = {
+            email: email,
+            name: name,
+            phone: phone
+        };
+        var val = {
+            client: client,
+            date: date,
+            time: time,
+            service: service
+        };
+        backendPost(url, val);
     }
 
     var $emailSubmitButton = $('#email_submit');
@@ -129,7 +183,7 @@ $(function () {
     $emailSubmitButton.click(function () {
         var mail = $('#client-email').val();
         if (mail.length > 0) {
-            validateMail(mail);
+            //validateMail(mail);
             $idClientCode.removeAttr('disabled');
             $codeSubmitButton.removeAttr('disabled');
             console.log("mail validated");
@@ -137,14 +191,16 @@ $(function () {
     });
 
     var $clientName = $('#client-name');
+    var $clientPhone = $('#client-phone');
 
     $codeSubmitButton.click(function () {
         var code = $idClientCode.val();
         if (code.length = 4) {
-            checkCode(code);
+            //checkCode(code);
             $filterDate.removeAttr('disabled');
             $submitService.removeAttr('disabled');
             $clientName.removeAttr('disabled');
+            $clientPhone.removeAttr('disabled');
         }
     });
 
@@ -157,13 +213,13 @@ $(function () {
         var date = $filterDate.val();
         $('#welcome-date').text(date);
 
+        var phone = $clientPhone.val();
 
-        if(name.length !==0 && date.length !== 0){
-            bookClient(name, date);
+        if (name.length !== 0 && date.length !== 0) {
+            bookClient(name, phone, date);
         }
     });
 
     // BOOKING END!
 
 });
-
