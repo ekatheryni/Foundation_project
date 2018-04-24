@@ -159,8 +159,12 @@
     padding-right: 85px;
 }
 
-.one-reservation a {
+.edit-icons button {
     margin-right: 10px;
+}
+
+.one-reservation button:hover {
+    cursor: pointer;
 }
 
 .edit-icons {

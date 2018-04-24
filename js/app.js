@@ -1,8 +1,5 @@
 $(function () {
 
-
-
-
     //DATE-TIME-PICKER
 
     var logic = function (currentDateTime) {
@@ -16,7 +13,6 @@ $(function () {
                 minTime: '8:00'
             });
     };
-
 
     var $filterDate = $('#filter-date');
 
@@ -295,76 +291,83 @@ $(function () {
         if (mail.length > 0) {
             //validateMailEdit(mail);
             console.log("mail validated");
-            //getBook();
+            getBookings(null);
         }
     });
 
-    // function getBook() {
-    //     var data = {
-    //         "makeUp": [
-    //             {
-    //                 "date": "2010-01-13",
-    //                 "time": "22:30:00"
-    //             },
-    //             {
-    //                 "date": "2000-01-15",
-    //                 "time": "07:00:00"
-    //             }
-    //         ],
-    //         "brows": [],
-    //         "nails": [
-    //             {
-    //                 "date": "1997-01-14",
-    //                 "time": "14:30:00"
-    //             },
-    //             {
-    //                 "date": "2018-04-25",
-    //                 "time": "15:00:00"
-    //             },
-    //             {
-    //                 "date": "2010-01-13",
-    //                 "time": "22:30:00"
-    //             }
-    //         ]
-    //     };
-    //
-    //     data.makeUp.forEach(function (value) {
-    //         var ser = "Make Up";
-    //         var date = value.date;
-    //         var time = value.time;
-    //         var space = " ";
-    //         $('#booking-list').append("<div class=\"one-reservation\">\n" +
-    //             "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-    //             "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-    //             "                        <a href=\"#\"><i class=\"step fi-pencil size-21\"></i></a>\n" +
-    //             "                        <a href=\"#\"><i class=\"step fi-x size-21\"></i></a>\n" +
-    //             "                    </div>");
-    //     });
-    //     data.brows.forEach(function (value) {
-    //         var ser = "Brows";
-    //         var date = value.date;
-    //         var time = value.time;
-    //         var space = " ";
-    //         $('#booking-list').append("<div class=\"one-reservation\">\n" +
-    //             "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-    //             "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-    //             "                        <a href=\"#\"><i class=\"step fi-pencil size-21\"></i></a>\n" +
-    //             "                        <a href=\"#\"><i class=\"step fi-x size-21\"></i></a>\n" +
-    //             "                    </div>");
-    //     });
-    //     data.nails.forEach(function (value) {
-    //         var ser = "Nails";
-    //         var date = value.date;
-    //         var time = value.time;
-    //         var space = " ";
-    //         $('#booking-list').append("<div class=\"one-reservation\">\n" +
-    //             "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-    //             "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-    //             "                        <a href=\"#\"><i class=\"step fi-pencil size-21\"></i></a>\n" +
-    //             "                        <a href=\"#\"><i class=\"step fi-x size-21\"></i></a>\n" +
-    //             "                    </div>");
-    //     });
-    // }
+    function getBookings(data) {
+        data = {
+            "makeUp": [
+                {
+                    "date": "2010-01-13",
+                    "time": "22:30:00"
+                },
+                {
+                    "date": "2000-01-15",
+                    "time": "07:00:00"
+                }
+            ],
+            "brows": [],
+            "nails": [
+                {
+                    "date": "1997-01-14",
+                    "time": "14:30:00"
+                },
+                {
+                    "date": "2018-04-25",
+                    "time": "15:00:00"
+                },
+                {
+                    "date": "2010-01-13",
+                    "time": "22:30:00"
+                }
+            ]
+        };
+
+
+        data.makeUp.forEach(function (value) {
+            var ser = "Make Up";
+            var date = value.date;
+            var time = value.time.slice(0, 5);
+            var space = " ";
+            $('#booking-list').append("<div class=\"one-reservation\">\n" +
+                "                        <span class=\"service-ed\">" + ser + "</span>\n" +
+                "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "<div class=\"edit-icons\">\n"+
+                "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
+                "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "</div>"+
+                "                    </div>");
+        });
+        data.brows.forEach(function (value) {
+            var ser = "Brows";
+            var date = value.date;
+            var time = value.time.slice(0, 5);
+            var space = " ";
+            $('#booking-list').append("<div class=\"one-reservation\">\n" +
+                "                        <span class=\"service-ed\">" + ser + "</span>\n" +
+                "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "<div class=\"edit-icons\">\n"+
+                "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
+                "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "</div>"+
+                "                    </div>");
+        });
+        data.nails.forEach(function (value) {
+            var ser = "Nails";
+            var date = value.date;
+            var time = value.time.slice(0, 5);
+            var space = " ";
+            $('#booking-list').append("<div class=\"one-reservation\">\n" +
+                "                        <span class=\"service-ed\">" + ser + "</span>\n" +
+                "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "<div class=\"edit-icons\">\n"+
+                "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
+                "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "</div>"+
+                "                    </div>");
+        });
+    }
 
 
     function validateMailEdit(mail) {
@@ -377,42 +380,7 @@ $(function () {
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (data) {
-                data.makeUp.forEach(function (value) {
-                    var ser = "Make Up";
-                    var date = value.date;
-                    var time = value.time;
-                    var space = " ";
-                    $('#booking-list').append("<div class=\"one-reservation\">\n" +
-                        "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-                        "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                        "                        <button><i class=\"step fi-pencil size-21\"></i></button>>\n" +
-                        "                        <button><i class=\"step fi-x size-21\"></i></button>\n" +
-                        "                    </div>");
-                });
-                data.brows.forEach(function (value) {
-                    var ser = "Brows";
-                    var date = value.date;
-                    var time = value.time;
-                    var space = " ";
-                    $('#booking-list').append("<div class=\"one-reservation\">\n" +
-                        "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-                        "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                        "                        <button><i class=\"step fi-pencil size-21\"></i></button>>\n" +
-                        "                        <button><i class=\"step fi-x size-21\"></i></button>\n" +
-                        "                    </div>");
-                });
-                data.nails.forEach(function (value) {
-                    var ser = "Nails";
-                    var date = value.date;
-                    var time = value.time;
-                    var space = " ";
-                    $('#booking-list').append("<div class=\"one-reservation\">\n" +
-                        "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-                        "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                        "                        <button><i class=\"step fi-pencil size-21\"></i></button>>\n" +
-                        "                        <button><i class=\"step fi-x size-21\"></i></button>\n" +
-                        "                    </div>");
-                });
+                getBookings(data);
             },
             error: function () {
                 alert("An error has occurred. Please try again.");
@@ -463,6 +431,30 @@ $(function () {
             }
         });
     }
+
+    var $bookingList = $('#booking-list');
+
+    $bookingList.on('click', '.ed-icon', function () {
+        var service = $(this).parent().siblings('.service-ed').text();
+        var date = $(this).parent().siblings('.data-edit').text();
+        var oldDate = date.substr(0, 10);
+        var oldTime = date.substr(11, 16);
+        console.log("EDIT " + service + " " + oldDate + " " + oldTime);
+
+
+        var newDate;
+        var newTime;
+        //editBooking(oldDate, oldTime, emailEdit, service, newDate, newTime);
+    });
+
+    $bookingList.on('click', '.del-icon', function () {
+        var service = $(this).parent().siblings('.service-ed').text();
+        var dateD = $(this).parent().siblings('.data-edit').text();
+        var date = dateD.substr(0, 10);
+        var time = dateD.substr(11, 16);
+        console.log("DEL " + service + " " + date + " " + time);
+        //deleteBooking(date, time, emailEdit, service);
+    });
 
 
     // EDIT END!
