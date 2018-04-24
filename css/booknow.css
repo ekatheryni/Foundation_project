@@ -13,6 +13,10 @@
     width: 400px;
 }
 
+.login-box-input :disabled{
+
+}
+
 .login-box-title {
     font-weight: 200;
     font-size: x-large;
@@ -28,7 +32,11 @@
     float: left;
 }
 
-.login-box-submit-button:hover {
+.login-box-submit-button :disabled{
+
+}
+
+.login-box-submit-button:hover:enabled {
     background-color: #0985c1;
 }
 
