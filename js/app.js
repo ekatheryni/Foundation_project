@@ -2,15 +2,9 @@ $(function () {
 
     //DATE-TIME-PICKER
 
-    $('#filter-date').datetimepicker();
+    var $filterDate = $('#filter-date');
 
-    $('#submit-service').click(function () {
-        // console.log("ready1");
-        var input = $('#client-name').val();
-        $("#welcome-name").text(input);
-        var date_input = $('#filter-date').val();
-        $('#welcome-date').text(date_input);
-    });
+    $filterDate.datetimepicker();
 
     //DATE-TIME-PICKER END!
 
@@ -88,10 +82,10 @@ $(function () {
         $.ajax({
             url: API_URL + url,
             type: 'GET',
-            success: function(data){
+            success: function (data) {
                 callback(null, data);
             },
-            error: function() {
+            error: function () {
                 callback(new Error("Ajax Failed"));
             }
         })
@@ -101,17 +95,75 @@ $(function () {
         $.ajax({
             url: API_URL + url,
             type: 'POST',
-            contentType : 'application/json',
+            contentType: 'application/json',
             data: JSON.stringify(data),
-            success: function(data){
+            success: function (data) {
                 callback(null, data);
             },
-            error: function() {
+            error: function () {
                 callback(new Error("Ajax Failed"));
             }
         })
     }
+
     // API END!
+
+    // BOOKING
+
+    function validateMail(mail) {
+
+    }
+
+    function checkCode(code) {
+
+    }
+
+    function bookClient(name, date) {
+
+    }
+
+    var $emailSubmitButton = $('#email_submit');
+    var $idClientCode = $('#id-client-code');
+    var $codeSubmitButton = $('#code_submit');
+
+    $emailSubmitButton.click(function () {
+        var mail = $('#client-email').val();
+        if (mail.length > 0) {
+            validateMail(mail);
+            $idClientCode.removeAttr('disabled');
+            $codeSubmitButton.removeAttr('disabled');
+            console.log("mail validated");
+        }
+    });
+
+    var $clientName = $('#client-name');
+
+    $codeSubmitButton.click(function () {
+        var code = $idClientCode.val();
+        if (code.length = 4) {
+            checkCode(code);
+            $filterDate.removeAttr('disabled');
+            $submitService.removeAttr('disabled');
+            $clientName.removeAttr('disabled');
+        }
+    });
+
+    var $submitService = $('#submit-service');
+
+    $submitService.click(function () {
+        // console.log("ready1");
+        var name = $clientName.val();
+        $("#welcome-name").text(name);
+        var date = $filterDate.val();
+        $('#welcome-date').text(date);
+
+
+        if(name.length !==0 && date.length !== 0){
+            bookClient(name, date);
+        }
+    });
+
+    // BOOKING END!
 
 });
 
