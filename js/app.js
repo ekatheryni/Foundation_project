@@ -20,6 +20,7 @@ $(function () {
     $filterDate.datetimepicker({
         onChangeDateTime: logic,
         onShow: logic,
+        minDate:'+1970/01/02',
         maxDate:'+1970/02/02'
     });
 

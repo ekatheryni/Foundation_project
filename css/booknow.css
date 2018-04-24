@@ -115,3 +115,37 @@
     transform: translateX(0%);
     opacity: 0.25;
 }
+
+.edit-question{
+    text-align: center;
+    font-size: 13px;
+}
+
+.edit-question a{
+    border-bottom: 0.7px solid rgba(9, 175, 246, 0.24);
+}
+
+
+.booking-list{
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.booking-list .one-reservation{
+    padding-top: 7px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(9, 175, 246, 0.24);
+}
+
+.service-ed{
+    padding-left: 10px;
+    padding-right: 70px;
+}
+
+.data-edit{
+    padding-right: 100px;
+}
+
+.one-reservation a{
+    margin-right: 10px;
+}
