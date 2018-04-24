@@ -13,7 +13,7 @@
     width: 400px;
 }
 
-.login-box-input :disabled{
+.login-box-input :disabled {
 
 }
 
@@ -32,7 +32,20 @@
     float: left;
 }
 
-.login-box-submit-button :disabled{
+.login-box-submit-button-edit {
+    width: 110px;
+    background-color: #099ddd;
+    color: white;
+    border-radius: 5000px;
+    margin-left: 1%;
+    float: left;
+}
+
+.login-box-submit-button-edit:hover:enabled {
+    background-color: #0985c1;
+}
+
+.login-box-submit-button :disabled {
 
 }
 
@@ -51,21 +64,21 @@
     text-align: center
 }
 
-.services-menu .services-menu-inside{
+.services-menu .services-menu-inside {
     width: 100%;
     margin: auto;
 }
 
-.services-menu .services-menu-inside .button{
+.services-menu .services-menu-inside .button {
     margin-right: 5%;
     margin-left: 5%;
-    margin-bottom: 5px!important;
+    margin-bottom: 5px !important;
 }
 
 .button-rounded-hover {
     border: 0;
     border-radius: 5000px;
-    padding:  5px 10px;
+    padding: 5px 10px;
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
@@ -116,36 +129,42 @@
     opacity: 0.25;
 }
 
-.edit-question{
+.edit-question {
     text-align: center;
     font-size: 13px;
 }
 
-.edit-question a{
+.edit-question a {
     border-bottom: 0.7px solid rgba(9, 175, 246, 0.24);
+    padding-bottom: 2px;
 }
 
-
-.booking-list{
+.booking-list {
     margin-top: 15px;
     margin-bottom: 30px;
 }
 
-.booking-list .one-reservation{
+.booking-list .one-reservation {
     padding-top: 7px;
     margin-bottom: 10px;
     border-bottom: 1px solid rgba(9, 175, 246, 0.24);
 }
 
-.service-ed{
+.service-ed {
     padding-left: 10px;
-    padding-right: 70px;
+    padding-right: 55px;
 }
 
-.data-edit{
-    padding-right: 100px;
+.data-edit {
+    padding-right: 85px;
 }
 
-.one-reservation a{
+.one-reservation a {
     margin-right: 10px;
+}
+
+.edit-icons {
+    display: inline;
+    text-align: right;
+    margin: auto;
 }
