@@ -341,12 +341,22 @@ $(function () {
             var time = value.time.slice(0, 5);
             var space = " ";
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
-                "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-                "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                "<div class=\"edit-icons\">\n" +
-                "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
-                "</div>" +
+                "                        <div class=\"edit-options\">\n" +
+                "                            <span class=\"service-ed\">" + ser + "</span>\n" +
+                "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "                            <div class=\"edit-icons\">\n" +
+                "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"new-edit is-hidden\">\n" +
+                "                            <div class=\"menu menu-date-check date-input-box\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
+                "                                       placeholder=\"Click to choose date\"/>\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
+                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
                 "                    </div>");
         });
         data.brows.forEach(function (value) {
@@ -355,12 +365,22 @@ $(function () {
             var time = value.time.slice(0, 5);
             var space = " ";
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
-                "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-                "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                "<div class=\"edit-icons\">\n" +
-                "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
-                "</div>" +
+                "                        <div class=\"edit-options\">\n" +
+                "                            <span class=\"service-ed\">" + ser + "</span>\n" +
+                "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "                            <div class=\"edit-icons\">\n" +
+                "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"new-edit is-hidden\">\n" +
+                "                            <div class=\"menu menu-date-check date-input-box\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
+                "                                       placeholder=\"Click to choose date\"/>\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
+                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
                 "                    </div>");
         });
         data.nails.forEach(function (value) {
@@ -369,12 +389,22 @@ $(function () {
             var time = value.time.slice(0, 5);
             var space = " ";
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
-                "                        <span class=\"service-ed\">" + ser + "</span>\n" +
-                "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                "<div class=\"edit-icons\">\n" +
-                "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
-                "</div>" +
+                "                        <div class=\"edit-options\">\n" +
+                "                            <span class=\"service-ed\">" + ser + "</span>\n" +
+                "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "                            <div class=\"edit-icons\">\n" +
+                "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"new-edit is-hidden\">\n" +
+                "                            <div class=\"menu menu-date-check date-input-box\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
+                "                                       placeholder=\"Click to choose date\"/>\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
+                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
                 "                    </div>");
         });
     }
@@ -453,6 +483,25 @@ $(function () {
         var oldTime = date.substr(11, 16);
         console.log("EDIT " + service + " " + oldDate + " " + oldTime);
 
+        var $editDate = $(this).parent().parent().siblings('.new-edit').firstChild;
+        var $editTime = $(this).parent().parent().siblings('.new-edit').lastChild;
+
+        console.log($editDate);
+
+        $editDate.datetimepicker({
+            onChangeDateTime: logic,
+            onShow: logic,
+            minDate: '+1970/01/01',
+            maxDate: '+1970/02/02',
+            timepicker: false,
+            format: 'Y/m/d'
+        });
+
+        $editTime.datetimepicker({
+            datepicker: false,
+            format: 'H:i'
+        });
+
 
         var newDate;
         var newTime;
@@ -465,6 +514,10 @@ $(function () {
         var date = dateD.substr(0, 10);
         var time = dateD.substr(11, 16);
         console.log("DEL " + service + " " + date + " " + time);
+
+
+
+        $(this).parent().parent().parent().remove();
         //deleteBooking(date, time, emailEdit, service);
     });
 
