@@ -485,10 +485,8 @@ $(function () {
             var oldTime = date.substr(11, 16);
             console.log("EDIT " + service + " " + oldDate + " " + oldTime);
 
-            console.log($(this).parent().parent().siblings('.new-edit').childList);
-
-            var $editDate = $(this).parent().parent().siblings('.new-edit').firstChild.firstChild;
-            var $editTime = $(this).parent().parent().siblings('.new-edit').firstChild.lastChild;
+            var $editDate = $(this).parent().parent().siblings('.new-edit').find("#filter-date-edit");
+            var $editTime = $(this).parent().parent().siblings('.new-edit').find("#filter-time-edit");
 
 
             $editDate.datetimepicker({
