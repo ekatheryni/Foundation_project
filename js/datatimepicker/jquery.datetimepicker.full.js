@@ -586,10 +586,17 @@ var datetimepickerFactory = function ($) {
 		touchMovedThreshold: 5,
 
 		onSelectDate: function () {
+
             var $filterDate = $('#filter-date');
             var date = $filterDate.val();
             var $filterTime = $('#filter-time');
             $filterTime.removeAttr('disabled');
+
+            var $filterDateEdit = $('#filter-date-edit');
+            var dateEdit = $filterDateEdit.val();
+            var $filterTimeEdit = $('#filter-time-edit');
+            $filterTimeEdit.removeAttr('disabled');
+
 			//  тут мы получаем дизэйбл время
            // var date = this.;
            //  var data = {email: mail};
