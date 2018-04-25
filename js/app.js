@@ -334,7 +334,6 @@ $(function () {
             ]
         };
 
-
         data.makeUp.forEach(function (value) {
             var ser = "Make Up";
             var date = value.date;
@@ -474,38 +473,45 @@ $(function () {
 
     var $bookingList = $('#booking-list');
 
+
     $bookingList.on('click', '.ed-icon', function () {
-        $(this).parent().parent().siblings('.new-edit').removeClass("is-hidden");
+        if ($(this).parent().parent().siblings('.new-edit').hasClass("is-hidden")) {
 
-        var service = $(this).parent().siblings('.service-ed').text();
-        var date = $(this).parent().siblings('.data-edit').text();
-        var oldDate = date.substr(0, 10);
-        var oldTime = date.substr(11, 16);
-        console.log("EDIT " + service + " " + oldDate + " " + oldTime);
+            $(this).parent().parent().siblings('.new-edit').removeClass("is-hidden");
 
-        var $editDate = $(this).parent().parent().siblings('.new-edit').firstChild;
-        var $editTime = $(this).parent().parent().siblings('.new-edit').lastChild;
+            var service = $(this).parent().siblings('.service-ed').text();
+            var date = $(this).parent().siblings('.data-edit').text();
+            var oldDate = date.substr(0, 10);
+            var oldTime = date.substr(11, 16);
+            console.log("EDIT " + service + " " + oldDate + " " + oldTime);
 
-        console.log($editDate);
+            console.log($(this).parent().parent().siblings('.new-edit').childList);
 
-        $editDate.datetimepicker({
-            onChangeDateTime: logic,
-            onShow: logic,
-            minDate: '+1970/01/01',
-            maxDate: '+1970/02/02',
-            timepicker: false,
-            format: 'Y/m/d'
-        });
-
-        $editTime.datetimepicker({
-            datepicker: false,
-            format: 'H:i'
-        });
+            var $editDate = $(this).parent().parent().siblings('.new-edit').firstChild.firstChild;
+            var $editTime = $(this).parent().parent().siblings('.new-edit').firstChild.lastChild;
 
 
-        var newDate;
-        var newTime;
-        //editBooking(oldDate, oldTime, emailEdit, service, newDate, newTime);
+            $editDate.datetimepicker({
+                onChangeDateTime: logic,
+                onShow: logic,
+                minDate: '+1970/01/01',
+                maxDate: '+1970/02/02',
+                timepicker: false,
+                format: 'Y/m/d'
+            });
+
+            $editTime.datetimepicker({
+                datepicker: false,
+                format: 'H:i'
+            });
+
+
+            var newDate;
+            var newTime;
+            //editBooking(oldDate, oldTime, emailEdit, service, newDate, newTime);
+        } else {
+            $(this).parent().parent().siblings('.new-edit').addClass("is-hidden");
+        }
     });
 
     $bookingList.on('click', '.del-icon', function () {
@@ -514,7 +520,6 @@ $(function () {
         var date = dateD.substr(0, 10);
         var time = dateD.substr(11, 16);
         console.log("DEL " + service + " " + date + " " + time);
-
 
 
         $(this).parent().parent().parent().remove();
