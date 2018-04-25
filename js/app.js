@@ -345,7 +345,7 @@ $(function () {
                 "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\" data-reveal-id=\"myModal\"><i class=\"step fi-x size-21\"></i></button>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"new-edit is-hidden\">\n" +
@@ -369,7 +369,7 @@ $(function () {
                 "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\" data-reveal-id=\"myModal\"><i class=\"step fi-x size-21\"></i></button>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"new-edit is-hidden\">\n" +
@@ -393,7 +393,7 @@ $(function () {
                 "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\" data-reveal-id=\"myModal\"><i class=\"step fi-x size-21\"></i></button>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"new-edit is-hidden\">\n" +
@@ -401,7 +401,7 @@ $(function () {
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
                 "                                       placeholder=\"Click to choose date\"/>\n" +
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
-                "                                       placeholder=\"Click to choose time\" data-reveal-id=\"myModal\" disabled/>\n" +
+                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>");
@@ -513,17 +513,21 @@ $(function () {
     });
 
     $bookingList.on('click', '.del-icon', function () {
-        var service = $(this).parent().siblings('.service-ed').text();
-        var dateD = $(this).parent().siblings('.data-edit').text();
-        var date = dateD.substr(0, 10);
-        var time = dateD.substr(11, 16);
-        console.log("DEL " + service + " " + date + " " + time);
+        var check = confirm("Are you sure, you want to delete these booking?");
+        if (check == true) {
+            var service = $(this).parent().siblings('.service-ed').text();
+            var dateD = $(this).parent().siblings('.data-edit').text();
+            var date = dateD.substr(0, 10);
+            var time = dateD.substr(11, 16);
+            console.log("DEL " + service + " " + date + " " + time);
 
+            //deleteBooking(date, time, emailEdit, service);
+            $(this).parent().parent().parent().remove();
+        } else {
 
-        $(this).parent().parent().parent().remove();
-        //deleteBooking(date, time, emailEdit, service);
+        }
+
     });
-
 
     // EDIT END!
     ////////////////////////////////////////
