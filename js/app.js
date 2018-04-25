@@ -15,7 +15,7 @@ $(function () {
 
     var codeIsChecked = false;
 
-    $(document).ready ( function(){
+    $(document).ready(function () {
         $idClientCode.val("");
         $clientName.val("");
         $clientPhone.val("");
@@ -36,12 +36,24 @@ $(function () {
     };
 
     var $filterDate = $('#filter-date');
+    var $filterTime = $('#filter-time');
 
-    $filterDate.datepicker({
+    $filterDate.datetimepicker({
         onChangeDateTime: logic,
         onShow: logic,
         minDate: '+1970/01/01',
-        maxDate: '+1970/02/02'
+        maxDate: '+1970/02/02',
+        timepicker: false,
+        format:'Y/m/d'
+    });
+
+    $filterTime.datetimepicker({
+        datepicker: false
+    });
+
+    $filterDate.click(function () {
+        var date = $filterDate.val();
+        console.log("date= " + date);
     });
 
     //DATE-TIME-PICKER END!
@@ -51,7 +63,7 @@ $(function () {
     function initialize() {
 
 //Тут починаємо працювати з картою
-        var point = {lat:  50.450083, lng: 30.495375};
+        var point = {lat: 50.450083, lng: 30.495375};
         home = new google.maps.LatLng(point);
 
         var mapProp = {
@@ -140,14 +152,27 @@ $(function () {
 
 
     $('#nails-service, #brows-service, #makeup-service').click(function () {
+        var $brows = $('#brows-service');
+        var $nails = $('#nails-service');
+        var $makeUp = $('#makeup-service');
+
         if (this.id == 'nails-service') {
             service = "Nails";
+            $nails.addClass("isChosen");
+            $brows.removeClass("isChosen");
+            $makeUp.removeClass("isChosen");
         }
         else if (this.id == 'brows-service') {
             service = "Brows";
+            $brows.addClass("isChosen");
+            $nails.removeClass("isChosen");
+            $makeUp.removeClass("isChosen");
         }
         else if (this.id == 'makeup-service') {
             service = "MakeUp";
+            $makeUp.addClass("isChosen");
+            $nails.removeClass("isChosen");
+            $brows.removeClass("isChosen");
         }
         console.log(service);
     });
@@ -250,6 +275,9 @@ $(function () {
             $clientName.removeAttr('disabled');
             $clientPhone.removeAttr('disabled');
             codeIsChecked = true;
+        }
+        else {
+            alert("Invalid code. Please try again.");
         }
     });
 
