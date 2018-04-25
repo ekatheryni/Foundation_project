@@ -585,32 +585,29 @@ var datetimepickerFactory = function ($) {
 		touchMovedThreshold: 5,
 
 		onSelectDate: function () {
-<<<<<<< HEAD
 			console.log("Hey");
-			<!-- тут мы получаем дизэйбл время -->
-=======
+			//  тут мы получаем дизэйбл время
            // var date = this.;
-            var data = {email: mail};
-            $.ajax({
-                url: '/emailVerification',
-                type: 'POST',
-                method: "post",
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                success: function (data) {
-                    if (data == true) {
-                        $idClientCode.removeAttr('disabled');
-                        $codeSubmitButton.removeAttr('disabled');
-                        console.log("mail validated in post method");
-                    } else {
-                        alert("Your email is incorrect. Please try again.");
-                    }
-                },
-                error: function () {
-                    alert("An error has occurred. Please try again.");
-                }
-            });
->>>>>>> 9051b61ce7d45d92fdfc9a2d8ecccc3c50085cf5
+           //  var data = {email: mail};
+           //  $.ajax({
+           //      url: '/emailVerification',
+           //      type: 'POST',
+           //      method: "post",
+           //      contentType: 'application/json',
+           //      data: JSON.stringify(data),
+           //      success: function (data) {
+           //          if (data == true) {
+           //              $idClientCode.removeAttr('disabled');
+           //              $codeSubmitButton.removeAttr('disabled');
+           //              console.log("mail validated in post method");
+           //          } else {
+           //              alert("Your email is incorrect. Please try again.");
+           //          }
+           //      },
+           //      error: function () {
+           //          alert("An error has occurred. Please try again.");
+           //      }
+           //  });
 		},
 		onSelectTime: function () {},
 		onChangeMonth: function () {},
