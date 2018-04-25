@@ -52,8 +52,8 @@ $(function () {
     });
 
     $filterDate.click(function () {
-        var date = $filterDate.val();
-        console.log("date= " + date);
+
+        console.log("date= " +  $filterDate.val()+"got");
     });
 
     //DATE-TIME-PICKER END!

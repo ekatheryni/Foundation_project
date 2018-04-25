@@ -589,7 +589,6 @@ var datetimepickerFactory = function ($) {
             var $filterDate = $('#filter-date');
             var date = $filterDate.val();
             console.log("date= " + date);
-			console.log("Hey");
 			//  тут мы получаем дизэйбл время
            // var date = this.;
            //  var data = {email: mail};
