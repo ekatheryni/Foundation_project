@@ -52,11 +52,6 @@ $(function () {
         format: 'H:i'
     });
 
-    $filterDate.click(function () {
-
-        console.log("date= " +  $filterDate.val()+"got");
-    });
-
     //DATE-TIME-PICKER END!
     //////////////////////////////////////////////////////////////////////////////////////
     // GOOGLE MAPS
@@ -290,7 +285,7 @@ $(function () {
         // $('#welcome-date').text(date);
         var phone = $clientPhone.val();
         var time = $filterTime.val();
-
+        // $('#welcome-time').text(time);
         if (name.length !== 0 && date.length !== 0 && time.length !== 0) {
             bookClient(name, phone, date, time);
         }
