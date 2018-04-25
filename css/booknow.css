@@ -59,7 +59,6 @@
 
 .services-menu {
     display: flex;
-    /*margin-bottom: 5px;*/
     margin-top: 5px;
     text-align: center
 }
@@ -74,10 +73,9 @@
     margin-left: 5%;
     margin-bottom: 5px !important;
 }
-
-.button-rounded-hover {
-    border: 0;
+.button-rounded-hover{
     border-radius: 5000px;
+    background-color: #09aff6;
     padding: 5px 10px;
     text-transform: uppercase;
     position: relative;
@@ -89,44 +87,8 @@
     transform: translateZ(0);
 }
 
-.button-rounded-hover:before {
-    opacity: 0;
-    content: "";
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    border-radius: inherit;
-    background-color: #fefefe;
-    transition: all 0.3s;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
-}
-
-.button-rounded-hover:after {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    border: 3px solid #115b8d;
-    content: '';
-    border-radius: inherit;
-}
-
-.button-rounded-hover:hover,
-.button-rounded-hover:focus {
-    background-color: #115b8d;
-}
-
-.button-rounded-hover:hover:before,
-.button-rounded-hover:focus:before {
-    -webkit-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-    opacity: 0.25;
+.button-rounded-hover:enabled{
+    background-color: #d596db;
 }
 
 .edit-question {

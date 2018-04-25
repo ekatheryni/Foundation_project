@@ -584,7 +584,10 @@ var datetimepickerFactory = function ($) {
 		theme: '',
 		touchMovedThreshold: 5,
 
-		onSelectDate: function () {},
+		onSelectDate: function () {
+			console.log("Hey");
+			<!-- тут мы получаем дизэйбл время -->
+		},
 		onSelectTime: function () {},
 		onChangeMonth: function () {},
 		onGetWeekOfYear: function () {},
