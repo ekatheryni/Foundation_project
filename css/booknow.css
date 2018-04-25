@@ -172,3 +172,9 @@
 .new-edit .menu-date-check{
     padding-bottom: 5px;
 }
+
+@media screen and (max-width: 640px){
+    #mobile-ios-modal-1{
+        display: contents;
+    }
+}
