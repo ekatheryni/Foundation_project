@@ -41,8 +41,9 @@ $(function () {
     // GOOGLE MAPS
 
     function initialize() {
+
 //Тут починаємо працювати з картою
-        var point = {lat: 50.45073399000806, lng: 30.494437170753713};
+        var point = {lat:  50.450083, lng: 30.495375};
         home = new google.maps.LatLng(point);
 
         var mapProp = {
