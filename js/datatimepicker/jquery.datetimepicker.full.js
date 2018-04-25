@@ -557,7 +557,7 @@ var datetimepickerFactory = function ($) {
 		step: 60,
 		monthChangeSpinner: true,
 
-		closeOnDateSelect: false,
+		closeOnDateSelect: true,
 		closeOnTimeSelect: true,
 		closeOnWithoutClick: true,
 		closeOnInputClick: true,
