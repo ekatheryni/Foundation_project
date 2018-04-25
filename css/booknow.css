@@ -160,3 +160,15 @@
 .noButton {
     width: 400px !important;
 }
+
+#client-email-edit {
+    width: 278px;
+}
+
+.date-input-edit {
+    height: 30px;
+}
+
+.new-edit .menu-date-check{
+    padding-bottom: 5px;
+}

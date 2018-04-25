@@ -53,7 +53,7 @@ $(function () {
 
     $filterDate.click(function () {
 
-        console.log("date= " +  $filterDate.val()+"got");
+        console.log("date= " + $filterDate.val() + "got");
     });
 
     //DATE-TIME-PICKER END!
@@ -449,6 +449,8 @@ $(function () {
     var $bookingList = $('#booking-list');
 
     $bookingList.on('click', '.ed-icon', function () {
+        $(this).parent().parent().siblings('.new-edit').removeClass("is-hidden");
+
         var service = $(this).parent().siblings('.service-ed').text();
         var date = $(this).parent().siblings('.data-edit').text();
         var oldDate = date.substr(0, 10);
