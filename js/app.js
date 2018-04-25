@@ -25,19 +25,19 @@ $(function () {
 
     var logic = function (currentDateTime) {
         // 'this' is jquery object datetimepicker
-        if (currentDateTime.getDay() == 6) {
-            this.setOptions({
-                minTime: '11:00'
-            });
-        } else
-            this.setOptions({
-                minTime: '8:00'
-            });
+        // if (currentDateTime.getDay() == 6) {
+        //     this.setOptions({
+        //         minTime: '11:00'
+        //     });
+        // } else
+        //     this.setOptions({
+        //         minTime: '8:00'
+        //     });
     };
 
     var $filterDate = $('#filter-date');
 
-    $filterDate.datetimepicker({
+    $filterDate.datepicker({
         onChangeDateTime: logic,
         onShow: logic,
         minDate: '+1970/01/01',
