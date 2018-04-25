@@ -10,7 +10,8 @@
 
 .login-box-input {
     border-radius: 5000px;
-    width: 400px;
+    width: 288px;
+    display: inline-block;
 }
 
 .login-box-input :disabled {
@@ -60,6 +61,7 @@
 .services-menu {
     display: flex;
     margin-top: 5px;
+    margin-bottom: 5px;
     text-align: center
 }
 
@@ -73,7 +75,8 @@
     margin-left: 5%;
     margin-bottom: 5px !important;
 }
-.button-rounded-hover{
+
+.button-rounded-hover {
     border-radius: 5000px;
     background-color: #09aff6;
     padding: 5px 10px;
@@ -87,13 +90,14 @@
     transform: translateZ(0);
 }
 
-.button-rounded-hover:enabled{
+.button-rounded-hover:enabled {
     background-color: #d596db;
 }
 
 .edit-question {
     text-align: center;
     font-size: 13px;
+    margin-top: 5px;
 }
 
 .edit-question a {
@@ -133,4 +137,20 @@
     display: inline;
     text-align: right;
     margin: auto;
+}
+
+.services-menu-inside .isChosen {
+    background-color: #8d5aff;
+}
+
+.date-input-box {
+    display: inline-block !important;
+}
+
+.date-input-box .date-input {
+    width: 194px !important;
+}
+
+.noButton{
+    width: 400px!important;
 }
