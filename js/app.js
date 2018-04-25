@@ -44,7 +44,7 @@ $(function () {
         minDate: '+1970/01/01',
         maxDate: '+1970/02/02',
         timepicker: false,
-        format:'Y/m/d'
+        format: 'Y/m/d'
     });
 
     $filterTime.datetimepicker({
@@ -174,7 +174,7 @@ $(function () {
             $nails.removeClass("isChosen");
             $brows.removeClass("isChosen");
         }
-        console.log(service);
+        //console.log(service);
     });
 
     function validateMail(mail) {
@@ -262,7 +262,7 @@ $(function () {
             //validateMail(mail);
             $idClientCode.removeAttr('disabled');
             $codeSubmitButton.removeAttr('disabled');
-            console.log("mail validated");
+            // console.log("mail validated");
         }
     });
 
@@ -288,9 +288,10 @@ $(function () {
         var date = $filterDate.val();
         // $('#welcome-date').text(date);
         var phone = $clientPhone.val();
+        var time = $filterTime.val();
 
-        if (name.length !== 0 && date.length !== 0) {
-            bookClient(name, phone, date);
+        if (name.length !== 0 && date.length !== 0 && time.length !== 0) {
+            bookClient(name, phone, date, time);
         }
     });
 
