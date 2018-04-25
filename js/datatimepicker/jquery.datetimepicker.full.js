@@ -592,8 +592,9 @@ var datetimepickerFactory = function ($) {
             var $filterTime = $('#filter-time');
             $filterTime.removeAttr('disabled');
 
-            var $filterDateEdit = $('#filter-date-edit');
+            var $filterDateEdit = $(this).parent();
             var dateEdit = $filterDateEdit.val();
+            console.log(dateEdit);
             var $filterTimeEdit = $('#filter-time-edit');
             $filterTimeEdit.removeAttr('disabled');
 
