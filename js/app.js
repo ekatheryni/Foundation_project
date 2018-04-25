@@ -1,5 +1,36 @@
 $(function () {
 
+    var service;
+    var email;
+    var $clientName = $('#client-name');
+    var $clientPhone = $('#client-phone');
+    var $emailSubmitButton = $('#email_submit');
+    var $idClientCode = $('#id-client-code');
+    var $codeSubmitButton = $('#code_submit');
+    var $submitService = $('#submit-service');
+    var emailEdit;
+    var $emailSubmitEdit = $('#email_submit-edit');
+    var $idClientCodeEdit = $('#id-client-code-edit');
+    var $codeSubmitEdit = $('#code_submit-edit');
+
+    var codeIsChecked = false;
+
+    $(document).ready ( function(){
+        console.log("code is checked");
+        if (codeIsChecked == true) {
+            $idClientCode.removeAttr('disabled');
+            $codeSubmitButton.removeAttr('disabled');
+            $filterDate.removeAttr('disabled');
+            $submitService.removeAttr('disabled');
+            $clientName.removeAttr('disabled');
+            $clientPhone.removeAttr('disabled');
+        }
+
+        $idClientCode.val("");
+        $clientName.val("");
+        $clientPhone.val("");
+    });
+
     //DATE-TIME-PICKER
 
     var logic = function (currentDateTime) {
@@ -22,19 +53,6 @@ $(function () {
         minDate: '+1970/01/01',
         maxDate: '+1970/02/02'
     });
-
-    /*var logic = function( currentDateTime ){
-     // 'this' is jquery object datetimepicker
-     if( currentDateTime.getDay()==6 ){
-       this.setOptions({
-         minTime:'11:00'
-       });
-     }else
-       this.setOptions({
-         minTime:'8:00'
-       });
-   };
-   */
 
     //DATE-TIME-PICKER END!
     //////////////////////////////////////////////////////////////////////////////////////
@@ -106,19 +124,6 @@ $(function () {
     // SCROLL BUTTONS END!
     ///////////////////////////////////////////////////////////////////////////////////////////
     // API
-    function backendGet(url, callback) {
-        $.ajax({
-            url: url,
-            type: 'GET',
-            method: "get",
-            success: function (data) {
-                callback(null, data);
-            },
-            error: function () {
-                callback(new Error("Ajax Failed"));
-            }
-        })
-    }
 
     function backendPost(url, data) {
         $.ajax({
@@ -141,15 +146,6 @@ $(function () {
     // API END!
     ////////////////////////////////////////////////////////////////////////
     // BOOKING
-
-    var service;
-    var email;
-    var $clientName = $('#client-name');
-    var $clientPhone = $('#client-phone');
-    var $emailSubmitButton = $('#email_submit');
-    var $idClientCode = $('#id-client-code');
-    var $codeSubmitButton = $('#code_submit');
-    var $submitService = $('#submit-service');
 
 
     $('#nails-service, #brows-service, #makeup-service').click(function () {
@@ -206,6 +202,7 @@ $(function () {
                     $submitService.removeAttr('disabled');
                     $clientName.removeAttr('disabled');
                     $clientPhone.removeAttr('disabled');
+                    codeIsChecked = true;
                 } else {
                     alert("You have entered the wrong code. Please try again.");
                 }
@@ -261,6 +258,7 @@ $(function () {
             $submitService.removeAttr('disabled');
             $clientName.removeAttr('disabled');
             $clientPhone.removeAttr('disabled');
+            codeIsChecked = true;
         }
     });
 
@@ -281,10 +279,6 @@ $(function () {
     /////////////////////////////////////////////
     // EDIT
 
-    var emailEdit;
-    var $emailSubmitEdit = $('#email_submit-edit');
-    var $idClientCodeEdit = $('#id-client-code-edit');
-    var $codeSubmitEdit = $('#code_submit-edit');
 
     $emailSubmitEdit.click(function () {
         var mail = $('#client-email-edit').val();
@@ -333,10 +327,10 @@ $(function () {
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
                 "                        <span class=\"service-ed\">" + ser + "</span>\n" +
                 "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                "<div class=\"edit-icons\">\n"+
+                "<div class=\"edit-icons\">\n" +
                 "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
                 "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
-                "</div>"+
+                "</div>" +
                 "                    </div>");
         });
         data.brows.forEach(function (value) {
@@ -347,10 +341,10 @@ $(function () {
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
                 "                        <span class=\"service-ed\">" + ser + "</span>\n" +
                 "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                "<div class=\"edit-icons\">\n"+
+                "<div class=\"edit-icons\">\n" +
                 "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
                 "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
-                "</div>"+
+                "</div>" +
                 "                    </div>");
         });
         data.nails.forEach(function (value) {
@@ -361,10 +355,10 @@ $(function () {
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
                 "                        <span class=\"service-ed\">" + ser + "</span>\n" +
                 "                        <span class=\"data-edit\">" + date + space + time + "</span>\n" +
-                "<div class=\"edit-icons\">\n"+
+                "<div class=\"edit-icons\">\n" +
                 "                        <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
                 "                        <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
-                "</div>"+
+                "</div>" +
                 "                    </div>");
         });
     }
