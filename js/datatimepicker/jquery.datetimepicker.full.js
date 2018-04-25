@@ -584,7 +584,29 @@ var datetimepickerFactory = function ($) {
 		theme: '',
 		touchMovedThreshold: 5,
 
-		onSelectDate: function () {},
+		onSelectDate: function () {
+           // var date = this.;
+            var data = {email: mail};
+            $.ajax({
+                url: '/emailVerification',
+                type: 'POST',
+                method: "post",
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (data) {
+                    if (data == true) {
+                        $idClientCode.removeAttr('disabled');
+                        $codeSubmitButton.removeAttr('disabled');
+                        console.log("mail validated in post method");
+                    } else {
+                        alert("Your email is incorrect. Please try again.");
+                    }
+                },
+                error: function () {
+                    alert("An error has occurred. Please try again.");
+                }
+            });
+		},
 		onSelectTime: function () {},
 		onChangeMonth: function () {},
 		onGetWeekOfYear: function () {},
