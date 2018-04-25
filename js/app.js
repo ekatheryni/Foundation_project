@@ -48,7 +48,8 @@ $(function () {
     });
 
     $filterTime.datetimepicker({
-        datepicker: false
+        datepicker: false,
+        format: 'H:i'
     });
 
     $filterDate.click(function () {

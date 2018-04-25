@@ -587,8 +587,8 @@ var datetimepickerFactory = function ($) {
 
 		onSelectDate: function () {
             var $filterDate = $('#filter-date');
-            var $filterTime = $('#filter-time');
             var date = $filterDate.val();
+            var $filterTime = $('#filter-time');
             $filterTime.removeAttr('disabled');
 			//  тут мы получаем дизэйбл время
            // var date = this.;
@@ -613,7 +613,16 @@ var datetimepickerFactory = function ($) {
            //      }
            //  });
 		},
-		onSelectTime: function () {},
+		onSelectTime: function () {
+            var $filterTime = $('#filter-time');
+			var time = $filterTime.val();
+            var $clientName = $('#client-name');
+            var $clientPhone = $('#client-phone');
+            var $submitService = $('#submit-service');
+            $submitService.removeAttr('disabled');
+            $clientName.removeAttr('disabled');
+            $clientPhone.removeAttr('disabled');
+		},
 		onChangeMonth: function () {},
 		onGetWeekOfYear: function () {},
 		onChangeYear: function () {},
