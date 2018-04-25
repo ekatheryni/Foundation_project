@@ -353,7 +353,7 @@ $(function () {
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
                 "                                       placeholder=\"Click to choose date\"/>\n" +
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
-                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                                       placeholder=\"Click to choose time\" data-reveal-id=\"myModal\" disabled/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>");
@@ -377,7 +377,7 @@ $(function () {
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
                 "                                       placeholder=\"Click to choose date\"/>\n" +
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
-                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                                       placeholder=\"Click to choose time\" data-reveal-id=\"myModal\" disabled/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>");
@@ -401,7 +401,7 @@ $(function () {
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
                 "                                       placeholder=\"Click to choose date\"/>\n" +
                 "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
-                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                                       placeholder=\"Click to choose time\" data-reveal-id=\"myModal\" disabled/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>");
