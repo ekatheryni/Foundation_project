@@ -16,16 +16,6 @@ $(function () {
     var codeIsChecked = false;
 
     $(document).ready ( function(){
-        console.log("code is checked");
-        if (codeIsChecked == true) {
-            $idClientCode.removeAttr('disabled');
-            $codeSubmitButton.removeAttr('disabled');
-            $filterDate.removeAttr('disabled');
-            $submitService.removeAttr('disabled');
-            $clientName.removeAttr('disabled');
-            $clientPhone.removeAttr('disabled');
-        }
-
         $idClientCode.val("");
         $clientName.val("");
         $clientPhone.val("");
