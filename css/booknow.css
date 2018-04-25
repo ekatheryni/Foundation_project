@@ -94,6 +94,10 @@
     background-color: #d596db;
 }
 
+.button-rounded-hover:hover {
+    background-color: #b285c5;
+}
+
 .edit-question {
     text-align: center;
     font-size: 13px;
@@ -151,6 +155,6 @@
     width: 194px !important;
 }
 
-.noButton{
-    width: 400px!important;
+.noButton {
+    width: 400px !important;
 }
