@@ -215,9 +215,9 @@ $(function () {
             success: function (data) {
                 if (data == true) {
                     $filterDate.removeAttr('disabled');
-                    $submitService.removeAttr('disabled');
-                    $clientName.removeAttr('disabled');
-                    $clientPhone.removeAttr('disabled');
+                    //$submitService.removeAttr('disabled');
+                    //$clientName.removeAttr('disabled');
+                    //$clientPhone.removeAttr('disabled');
                     codeIsChecked = true;
                 } else {
                     alert("You have entered the wrong code. Please try again.");
@@ -271,9 +271,9 @@ $(function () {
         if (code.length == 4) {
             checkCode(code);
             $filterDate.removeAttr('disabled');
-            $submitService.removeAttr('disabled');
-            $clientName.removeAttr('disabled');
-            $clientPhone.removeAttr('disabled');
+            //$submitService.removeAttr('disabled');
+            //$clientName.removeAttr('disabled');
+            //$clientPhone.removeAttr('disabled');
             codeIsChecked = true;
         }
         else {
