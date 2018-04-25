@@ -16,6 +16,7 @@
 /**
  * @param {jQuery} $
  */
+
 var datetimepickerFactory = function ($) {
 	'use strict';
 
