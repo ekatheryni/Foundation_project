@@ -48,17 +48,8 @@ $(function () {
     });
 
     $filterTime.datetimepicker({
-<<<<<<< HEAD
-        datepicker: false
-    });
-
-    $filterDate.click(function () {
-
-        console.log("date= " + $filterDate.val() + "got");
-=======
         datepicker: false,
         format: 'H:i'
->>>>>>> ba02984d39ee22c8b1cecc92b5d84daec8b8476e
     });
 
     //DATE-TIME-PICKER END!
