@@ -147,8 +147,11 @@
                     <input class="login-box-submit-button" type="submit" id="code_submit" value="Submit" disabled/>
                 </div>
                 <div class="menu menu-date-check date-input-box">
-                    <input class="login-box-input date-input" type="text" id="filter-date"
-                           placeholder="Click to choose date" disabled/>
+                    <span class="input-with-but">
+                        <input class="login-box-input date-input" type="text" id="filter-date"
+                               placeholder="Click to choose date" disabled/>
+                    <button id="confirm-date" disabled><i class="fi-check"></i></button>
+                        </span>
                     <input class="login-box-input date-input" type="text" id="filter-time"
                            placeholder="Click to choose time" disabled/>
                 </div>
@@ -182,27 +185,35 @@
                            value="Get Bookings"/>
                 </div>
                 <div class="booking-list" id="booking-list">
+
                     <div class="one-reservation">
-<<<<<<< HEAD
                         <div class="edit-options">
                             <span class="service-ed">Nails</span>
                             <span class="data-edit">2018/03/18 12:00</span>
                             <div class="edit-icons">
                                 <button class="ed-icon"><i class="step fi-pencil size-21"></i></button>
-                                <button class="del-icon" data-reveal-id="myModal"><i class="step fi-x size-21"></i></button>
+                                <button class="del-icon" data-reveal-id="myModal"><i class="step fi-x size-21"></i>
+                                </button>
                             </div>
                         </div>
-=======
->>>>>>> 975d3ccb158fac51364f72128557e8e92b4a9a7f
                         <div class="new-edit is-hidden">
                             <div class="menu menu-date-check date-input-box">
-                                <input class="login-box-input date-input date-input-edit" type="text" id="filter-date-edit"
+                                <span class="input-with-but">
+                                <input class="login-box-input date-input date-input-edit" type="text"
+                                       id="filter-date-edit"
                                        placeholder="Click to choose date"/>
-                                <input class="login-box-input date-input date-input-edit" type="text" id="filter-time-edit"
+                                    <button id="confirm-date-edit"><i class="fi-check"></i></button>
+                                </span>
+                                <span class="input-with-but">
+                                <input class="login-box-input date-input date-input-edit" type="text"
+                                       id="filter-time-edit"
                                        placeholder="Click to choose time" disabled/>
+                                    <button id="confirm-time-edit" disabled><i class="fi-check"></i></button>
+                                </span>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="edit-question">
                     <a href="#" data-open="mobile-ios-modal-1">Don`t have any bookings yet? Book now!</a>
@@ -272,6 +283,7 @@
 
 
 TODO
-dateTimePicker in Edit
-disabled time for Edit
+disabled time. У нас есть массив disabled,  но в пикере есть только атрибут allowedTimes -
+нам нужна функция, которая поубирает занятое время из масивчика
+
 adaptation for Book Now

@@ -587,49 +587,33 @@ var datetimepickerFactory = function ($) {
 
 		onSelectDate: function () {
 
-            var $filterDate = $('#filter-date');
-            var date = $filterDate.val();
-            var $filterTime = $('#filter-time');
-            $filterTime.removeAttr('disabled');
+            // var $filterDate = $('#filter-date');
+            // var date = $filterDate.val();
+            // var $filterTime = $('#filter-time');
+            // $filterTime.removeAttr('disabled');
+            //
+            // //  тут мы получаем дизэйбл время
+            //
+            //
+            //
+            // var $filterDateEdit = $(this).parent();
+            // var dateEdit = $filterDateEdit.val();
+            // console.log(dateEdit);
+            // var $filterTimeEdit = $('#filter-time-edit');
+            // $filterTimeEdit.removeAttr('disabled');
 
-            var $filterDateEdit = $(this).parent();
-            var dateEdit = $filterDateEdit.val();
-            console.log(dateEdit);
-            var $filterTimeEdit = $('#filter-time-edit');
-            $filterTimeEdit.removeAttr('disabled');
 
-			//  тут мы получаем дизэйбл время
-           // var date = this.;
-           //  var data = {email: mail};
-           //  $.ajax({
-           //      url: '/emailVerification',
-           //      type: 'POST',
-           //      method: "post",
-           //      contentType: 'application/json',
-           //      data: JSON.stringify(data),
-           //      success: function (data) {
-           //          if (data == true) {
-           //              $idClientCode.removeAttr('disabled');
-           //              $codeSubmitButton.removeAttr('disabled');
-           //              console.log("mail validated in post method");
-           //          } else {
-           //              alert("Your email is incorrect. Please try again.");
-           //          }
-           //      },
-           //      error: function () {
-           //          alert("An error has occurred. Please try again.");
-           //      }
-           //  });
+
 		},
 		onSelectTime: function () {
-            var $filterTime = $('#filter-time');
-			var time = $filterTime.val();
-            var $clientName = $('#client-name');
-            var $clientPhone = $('#client-phone');
-            var $submitService = $('#submit-service');
-            $submitService.removeAttr('disabled');
-            $clientName.removeAttr('disabled');
-            $clientPhone.removeAttr('disabled');
+            // var $filterTime = $('#filter-time');
+            // var time = $filterTime.val();
+            // var $clientName = $('#client-name');
+            // var $clientPhone = $('#client-phone');
+            // var $submitService = $('#submit-service');
+            // $submitService.removeAttr('disabled');
+            // $clientName.removeAttr('disabled');
+            // $clientPhone.removeAttr('disabled');
 		},
 		onChangeMonth: function () {},
 		onGetWeekOfYear: function () {},

@@ -5034,7 +5034,7 @@ a.thumbnail {
   font-weight: bold;
   cursor: help; }
 
-.tooltip {
+.confirm-date {
   position: absolute;
   top: calc(100% + 0.6495rem);
   z-index: 1200;
@@ -5044,9 +5044,9 @@ a.thumbnail {
   background-color: #0a0a0a;
   font-size: 80%;
   color: #fefefe; }
-  .tooltip::before {
+  .confirm-date::before {
     position: absolute; }
-  .tooltip.bottom::before {
+  .confirm-date.bottom::before {
     display: block;
     width: 0;
     height: 0;
@@ -5056,11 +5056,11 @@ a.thumbnail {
     border-bottom-style: solid;
     border-color: transparent transparent #0a0a0a;
     bottom: 100%; }
-  .tooltip.bottom.align-center::before {
+  .confirm-date.bottom.align-center::before {
     left: 50%;
     -ms-transform: translateX(-50%);
         transform: translateX(-50%); }
-  .tooltip.top::before {
+  .confirm-date.top::before {
     display: block;
     width: 0;
     height: 0;
@@ -5071,11 +5071,11 @@ a.thumbnail {
     border-color: #0a0a0a transparent transparent;
     top: 100%;
     bottom: auto; }
-  .tooltip.top.align-center::before {
+  .confirm-date.top.align-center::before {
     left: 50%;
     -ms-transform: translateX(-50%);
         transform: translateX(-50%); }
-  .tooltip.left::before {
+  .confirm-date.left::before {
     display: block;
     width: 0;
     height: 0;
@@ -5085,12 +5085,12 @@ a.thumbnail {
     border-left-style: solid;
     border-color: transparent transparent transparent #0a0a0a;
     left: 100%; }
-  .tooltip.left.align-center::before {
+  .confirm-date.left.align-center::before {
     bottom: auto;
     top: 50%;
     -ms-transform: translateY(-50%);
         transform: translateY(-50%); }
-  .tooltip.right::before {
+  .confirm-date.right::before {
     display: block;
     width: 0;
     height: 0;
@@ -5101,21 +5101,21 @@ a.thumbnail {
     border-color: transparent #0a0a0a transparent transparent;
     right: 100%;
     left: auto; }
-  .tooltip.right.align-center::before {
+  .confirm-date.right.align-center::before {
     bottom: auto;
     top: 50%;
     -ms-transform: translateY(-50%);
         transform: translateY(-50%); }
-  .tooltip.align-top::before {
+  .confirm-date.align-top::before {
     bottom: auto;
     top: 10%; }
-  .tooltip.align-bottom::before {
+  .confirm-date.align-bottom::before {
     bottom: 10%;
     top: auto; }
-  .tooltip.align-left::before {
+  .confirm-date.align-left::before {
     left: 10%;
     right: auto; }
-  .tooltip.align-right::before {
+  .confirm-date.align-right::before {
     left: auto;
     right: 10%; }
 

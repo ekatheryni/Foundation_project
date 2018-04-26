@@ -1,6 +1,6 @@
 $(function () {
 
-    var service;
+    var service = null;
     var email;
     var $clientName = $('#client-name');
     var $clientPhone = $('#client-phone');
@@ -12,6 +12,7 @@ $(function () {
     var $emailSubmitEdit = $('#email_submit-edit');
     var $idClientCodeEdit = $('#id-client-code-edit');
     var $codeSubmitEdit = $('#code_submit-edit');
+    var $confirmDate = $('#confirm-date');
 
     var codeIsChecked = false;
 
@@ -25,14 +26,37 @@ $(function () {
 
     var logic = function (currentDateTime) {
         // 'this' is jquery object datetimepicker
-        // if (currentDateTime.getDay() == 6) {
-        //     this.setOptions({
-        //         minTime: '11:00'
-        //     });
-        // } else
-        //     this.setOptions({
-        //         minTime: '8:00'
-        //     });
+        if (currentDateTime.getDay() == 6 || currentDateTime.getDay() == 7) {
+            this.setOptions({
+                allowTimes: [
+                    '11:00',
+                    '12:00',
+                    '13:00',
+                    '14:00',
+                    '15:00',
+                    '16:00',
+                    '17:00',
+                    '18:00',
+                    '19:00']
+            });
+        } else
+            this.setOptions({
+                allowTimes: [
+                    '8:00',
+                    '9:00',
+                    '10:00',
+                    '11:00',
+                    '12:00',
+                    '13:00',
+                    '14:00',
+                    '15:00',
+                    '16:00',
+                    '17:00',
+                    '18:00',
+                    '19:00',
+                    '20:00',
+                    '21:00']
+            });
     };
 
     var $filterDate = $('#filter-date');
@@ -41,15 +65,11 @@ $(function () {
     $filterDate.datetimepicker({
         onChangeDateTime: logic,
         onShow: logic,
+        dayOfWeekStart: 1,
         minDate: '+1970/01/01',
         maxDate: '+1970/02/02',
         timepicker: false,
         format: 'Y/m/d'
-    });
-
-    $filterTime.datetimepicker({
-        datepicker: false,
-        format: 'H:i'
     });
 
     //DATE-TIME-PICKER END!
@@ -146,7 +166,6 @@ $(function () {
     ////////////////////////////////////////////////////////////////////////
     // BOOKING
 
-
     $('#nails-service, #brows-service, #makeup-service').click(function () {
         var $brows = $('#brows-service');
         var $nails = $('#nails-service');
@@ -211,10 +230,10 @@ $(function () {
             success: function (data) {
                 if (data == true) {
                     $filterDate.removeAttr('disabled');
-                    //$submitService.removeAttr('disabled');
-                    //$clientName.removeAttr('disabled');
-                    //$clientPhone.removeAttr('disabled');
-                    codeIsChecked = true;
+                    $confirmDate.removeAttr('disabled');
+                    // $submitService.removeAttr('disabled');
+                    // $clientName.removeAttr('disabled');
+                    // $clientPhone.removeAttr('disabled');
                 } else {
                     alert("You have entered the wrong code. Please try again.");
                 }
@@ -267,16 +286,68 @@ $(function () {
         if (code.length == 4) {
             checkCode(code);
             $filterDate.removeAttr('disabled');
-            //$submitService.removeAttr('disabled');
-            //$clientName.removeAttr('disabled');
-            //$clientPhone.removeAttr('disabled');
-            codeIsChecked = true;
+            $confirmDate.removeAttr('disabled');
         }
         else {
             alert("Invalid code. Please try again.");
         }
     });
 
+    $confirmDate.click(function () {
+            if (service == null) {
+                alert("Please choose the service!");
+            } else {
+                var date = $filterDate.val();
+                var data = {
+                    email: email,
+                    service: service,
+                    date: date
+                };
+
+                $filterTime.removeAttr('disabled');
+                $clientName.removeAttr('disabled');
+                $clientPhone.removeAttr('disabled');
+                $submitService.removeAttr('disabled');
+
+                $.ajax({
+                        url: '/registration/getBusyTimesForService ',
+                        type: 'POST',
+                        method: "post",
+                        contentType: 'application/json',
+                        data: JSON.stringify(data),
+                        success: function (data) {
+                            if (data == true) {
+                                $filterTime.removeAttr('disabled');
+
+                                $filterTime.datetimepicker({
+                                    onChangeDateTime: logic,
+                                    onShow: logic,
+                                    datepicker: false,
+                                    format: 'H:i'
+                                });
+
+
+                                $clientName.removeAttr('disabled');
+                                $clientPhone.removeAttr('disabled');
+                                $submitService.removeAttr('disabled');
+                            } else {
+                                alert("Your email is incorrect. Please try again.");
+                            }
+                        },
+                        error: function () {
+                            alert("An error has occurred. Please try again.");
+                        }
+                    }
+                );
+
+
+                $submitService.removeAttr('disabled');
+                $clientName.removeAttr('disabled');
+                $clientPhone.removeAttr('disabled');
+            }
+        }
+    )
+    ;
 
     $submitService.click(function () {
         var name = $clientName.val();
@@ -286,8 +357,11 @@ $(function () {
         var phone = $clientPhone.val();
         var time = $filterTime.val();
         // $('#welcome-time').text(time);
-        if (name.length !== 0 && date.length !== 0 && time.length !== 0) {
+        if (name.length !== 0 && date.length !== 0 && time.length !== 0 && service !== null) {
             bookClient(name, phone, date, time);
+        }
+        else {
+            alert("Something is missing...");
         }
     });
 
@@ -345,15 +419,23 @@ $(function () {
                 "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                                <button class=\"del-icon\" data-reveal-id=\"myModal\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"new-edit is-hidden\">\n" +
                 "                            <div class=\"menu menu-date-check date-input-box\">\n" +
-                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
+                "<span class=\"input-with-but\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\"\n" +
+                "                                       id=\"filter-date-edit\"\n" +
                 "                                       placeholder=\"Click to choose date\"/>\n" +
-                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
-                "                                       placeholder=\"Click to choose time\" data-reveal-id=\"myModal\" disabled/>\n" +
+                "                                    <button id=\"confirm-date-edit\"><i class=\"fi-check\"></i></button>\n" +
+                "                                </span>" +
+                "<span class=\"input-with-but\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\"\n" +
+                "                                       id=\"filter-time-edit\"\n" +
+                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                                    <button id=\"confirm-time-edit\" disabled><i class=\"fi-check\"></i></button>\n" +
+                "                                </span>" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>");
@@ -369,15 +451,23 @@ $(function () {
                 "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                                <button class=\"del-icon\" data-reveal-id=\"myModal\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"new-edit is-hidden\">\n" +
                 "                            <div class=\"menu menu-date-check date-input-box\">\n" +
-                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
+                "<span class=\"input-with-but\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\"\n" +
+                "                                       id=\"filter-date-edit\"\n" +
                 "                                       placeholder=\"Click to choose date\"/>\n" +
-                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
-                "                                       placeholder=\"Click to choose time\" data-reveal-id=\"myModal\" disabled/>\n" +
+                "                                    <button id=\"confirm-date-edit\"><i class=\"fi-check\"></i></button>\n" +
+                "                                </span>" +
+                "<span class=\"input-with-but\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\"\n" +
+                "                                       id=\"filter-time-edit\"\n" +
+                "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                                    <button id=\"confirm-time-edit\" disabled><i class=\"fi-check\"></i></button>\n" +
+                "                                </span>" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>");
@@ -393,15 +483,23 @@ $(function () {
                 "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
-                "                                <button class=\"del-icon\" data-reveal-id=\"myModal\"><i class=\"step fi-x size-21\"></i></button>\n" +
+                "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"new-edit is-hidden\">\n" +
                 "                            <div class=\"menu menu-date-check date-input-box\">\n" +
-                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-date-edit\"\n" +
+                "<span class=\"input-with-but\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\"\n" +
+                "                                       id=\"filter-date-edit\"\n" +
                 "                                       placeholder=\"Click to choose date\"/>\n" +
-                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\" id=\"filter-time-edit\"\n" +
+                "                                    <button id=\"confirm-date-edit\"><i class=\"fi-check\"></i></button>\n" +
+                "                                </span>" +
+                "<span class=\"input-with-but\">\n" +
+                "                                <input class=\"login-box-input date-input date-input-edit\" type=\"text\"\n" +
+                "                                       id=\"filter-time-edit\"\n" +
                 "                                       placeholder=\"Click to choose time\" disabled/>\n" +
+                "                                    <button id=\"confirm-time-edit\" disabled><i class=\"fi-check\"></i></button>\n" +
+                "                                </span>" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>");
@@ -464,6 +562,7 @@ $(function () {
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (data) {
+                alert("Your booking has been successfully changed!");
             },
             error: function () {
                 alert("An error has occurred. Please try again.");
@@ -475,9 +574,10 @@ $(function () {
 
 
     $bookingList.on('click', '.ed-icon', function () {
-        if ($(this).parent().parent().siblings('.new-edit').hasClass("is-hidden")) {
+        var $newEdit = $(this).parent().parent().siblings('.new-edit');
+        if ($newEdit.hasClass("is-hidden")) {
 
-            $(this).parent().parent().siblings('.new-edit').removeClass("is-hidden");
+            $newEdit.removeClass("is-hidden");
 
             var service = $(this).parent().siblings('.service-ed').text();
             var date = $(this).parent().siblings('.data-edit').text();
@@ -485,8 +585,9 @@ $(function () {
             var oldTime = date.substr(11, 16);
             console.log("EDIT " + service + " " + oldDate + " " + oldTime);
 
-            var $editDate = $(this).parent().parent().siblings('.new-edit').find("#filter-date-edit");
-            var $editTime = $(this).parent().parent().siblings('.new-edit').find("#filter-time-edit");
+            var $editDate = $newEdit.find("#filter-date-edit");
+            var $editTime = $newEdit.find("#filter-time-edit");
+            var $confirmTime = $newEdit.find('#confirm-time-edit');
 
 
             $editDate.datetimepicker({
@@ -498,15 +599,54 @@ $(function () {
                 format: 'Y/m/d'
             });
 
-            $editTime.datetimepicker({
-                datepicker: false,
-                format: 'H:i'
+            var $checkBut = $newEdit.find('#confirm-date-edit');
+            $checkBut.click(function () {
+                var data = {
+                    email: email,
+                    service: service,
+                    date: date
+                };
+
+                $editTime.removeAttr('disabled');
+                $confirmTime.removeAttr('disabled');
+
+                $.ajax({
+                        url: '/registration/getBusyTimesForService ',
+                        type: 'POST',
+                        method: "post",
+                        contentType: 'application/json',
+                        data: JSON.stringify(data),
+                        success: function (data) {
+                            if (data == true) {
+                                $editTime.removeAttr('disabled');
+                                $confirmTime.removeAttr('disabled');
+
+                                $editTime.datetimepicker({
+                                    onChangeDateTime: logic,
+                                    onShow: logic,
+                                    datepicker: false,
+                                    format: 'H:i'
+                                });
+
+                            } else {
+                                alert("Your email is incorrect. Please try again.");
+                            }
+                        },
+                        error: function () {
+                            alert("An error has occurred. Please try again.");
+                        }
+                    }
+                );
             });
 
+            $confirmTime.click(function () {
+                var newDate = $editDate.val();
+                var newTime = $editTime.val();
 
-            var newDate;
-            var newTime;
-            //editBooking(oldDate, oldTime, emailEdit, service, newDate, newTime);
+
+                editBooking(oldDate, oldTime, emailEdit, service, newDate, newTime);
+            });
+
         } else {
             $(this).parent().parent().siblings('.new-edit').addClass("is-hidden");
         }
@@ -521,7 +661,7 @@ $(function () {
             var time = dateD.substr(11, 16);
             console.log("DEL " + service + " " + date + " " + time);
 
-            //deleteBooking(date, time, emailEdit, service);
+            deleteBooking(date, time, emailEdit, service);
             $(this).parent().parent().parent().remove();
         } else {
 

@@ -169,12 +169,39 @@
     height: 30px;
 }
 
-.new-edit .menu-date-check{
+.new-edit .menu-date-check {
     padding-bottom: 5px;
 }
 
-@media screen and (max-width: 640px){
-    #mobile-ios-modal-1{
+@media screen and (max-width: 640px) {
+    #mobile-ios-modal-1 {
         display: contents;
     }
+}
+
+.input-with-but button {
+    position: absolute;
+    right: 12px;
+    top: 2px;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.input-with-but button:hover:enabled {
+    cursor: pointer;
+}
+
+.input-with-but button:hover:disabled {
+    cursor: not-allowed;
+}
+
+.input-with-but {
+    position: relative;
+    margin-bottom: 10px;
 }
