@@ -5,8 +5,8 @@
 }
 
 .gallery-photo {
-    display: inline-block;
-    width: 33%;
+    width: 30%;
+    height: auto;
 }
 
 @media screen and (max-width: 905px) {

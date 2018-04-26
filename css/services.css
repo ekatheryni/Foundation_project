@@ -20,7 +20,7 @@
 
 .orbit-image{
     width: auto;
-    height: 400px;
+    height: 300px;
     position: relative;
     left: 50%;
     margin: 1rem;
@@ -35,7 +35,7 @@
         text-align: left;
         width: 70%;
         right: 0;
-        padding: 1rem 2rem;
+        padding-right: 10%;
     }
 }
 
@@ -48,6 +48,12 @@
 @media screen and (min-width: 90em) {
     .clean-hero-slider .orbit-caption {
         padding-right: 20%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .orbit-image {
+        height: 200px;
     }
 }
 

@@ -146,23 +146,24 @@ $(function () {
     ///////////////////////////////////////////////////////////////////////////////////////////
     // API
 
-    function backendPost(url, data) {
-        $.ajax({
-            url: url,
-            type: 'POST',
-            method: "post",
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function (data) {
-                console.log("success post");
-                // callback(null, data);
-            },
-            error: function () {
-                // callback(new Error("Ajax Failed"));
-                console.log("error post");
-            }
-        })
-    }
+    //
+    // function backendPost(url, data) {
+    //     $.ajax({
+    //         url: url,
+    //         type: 'POST',
+    //         method: "post",
+    //         contentType: 'application/json',
+    //         data: JSON.stringify(data),
+    //         success: function (data) {
+    //             console.log("success post");
+    //             // callback(null, data);
+    //         },
+    //         error: function () {
+    //             // callback(new Error("Ajax Failed"));
+    //             console.log("error post");
+    //         }
+    //     })
+    // }
 
     // API END!
     ////////////////////////////////////////////////////////////////////////
@@ -207,7 +208,7 @@ $(function () {
                 if (data == true) {
                     $idClientCode.removeAttr('disabled');
                     $codeSubmitButton.removeAttr('disabled');
-                    console.log("mail validated in post method");
+                    // console.log("mail validated in post method");
                 } else {
                     alert("Your email is incorrect. Please try again.");
                 }
@@ -276,9 +277,9 @@ $(function () {
     $emailSubmitButton.click(function () {
         var mail = $('#client-email').val();
         if (mail.length > 0) {
-            //validateMail(mail);
-            $idClientCode.removeAttr('disabled');
-            $codeSubmitButton.removeAttr('disabled');
+            validateMail(mail);
+            // $idClientCode.removeAttr('disabled');
+            // $codeSubmitButton.removeAttr('disabled');
             // console.log("mail validated");
         }
     });
@@ -287,8 +288,8 @@ $(function () {
         var code = $idClientCode.val();
         if (code.length == 4) {
             checkCode(code);
-            $filterDate.removeAttr('disabled');
-            $confirmDate.removeAttr('disabled');
+            // $filterDate.removeAttr('disabled');
+            // $confirmDate.removeAttr('disabled');
         }
         else {
             alert("Invalid code. Please try again.");
@@ -306,10 +307,10 @@ $(function () {
                     date: date
                 };
 
-                $filterTime.removeAttr('disabled');
-                $clientName.removeAttr('disabled');
-                $clientPhone.removeAttr('disabled');
-                $submitService.removeAttr('disabled');
+                // $filterTime.removeAttr('disabled');
+                // $clientName.removeAttr('disabled');
+                // $clientPhone.removeAttr('disabled');
+                // $submitService.removeAttr('disabled');
 
                 $.ajax({
                         url: '/registration/getBusyTimesForService ',
@@ -387,52 +388,40 @@ $(function () {
         var mail = $('#client-email-edit').val();
         if (mail.length > 0) {
             //validateMailEdit(mail);
-            console.log("mail validated");
+            //console.log("mail validated");
             getBookings(null);
         }
     });
 
     function getBookings(data) {
-        data = {
-            "makeUp": [
-                {
-                    "date": "2010-01-13",
-                    "time": "22:30:00"
-                },
-                {
-                    "date": "2000-01-15",
-                    "time": "07:00:00"
-                }
-            ],
-            "brows": [],
-            "nails": [
-                {
-                    "date": "1997-01-14",
-                    "time": "14:30:00"
-                },
-                {
-                    "date": "2018-04-25",
-                    "time": "15:00:00"
-                },
-                {
-                    "date": "2010-01-13",
-                    "time": "22:30:00"
-                }
-            ]
-        };
-        data.makeUp.sort(function(a, b) {
-            var valueA, valueB;
+        // data = {
+        //     "makeUp": [
+        //         {
+        //             "date": "2010-01-13",
+        //             "time": "22:30:00"
+        //         },
+        //         {
+        //             "date": "2000-01-15",
+        //             "time": "07:00:00"
+        //         }
+        //     ],
+        //     "brows": [],
+        //     "nails": [
+        //         {
+        //             "date": "1997-01-14",
+        //             "time": "14:30:00"
+        //         },
+        //         {
+        //             "date": "2018-04-25",
+        //             "time": "15:00:00"
+        //         },
+        //         {
+        //             "date": "2010-01-13",
+        //             "time": "22:30:00"
+        //         }
+        //     ]
+        // };
 
-            valueA = a[1]; // Where 1 is your index, from your example
-            valueB = b[1];
-            if (valueA < valueB) {
-                return -1;
-            }
-            else if (valueA > valueB) {
-                return 1;
-            }
-            return 0;
-        });
 
         data.makeUp.forEach(function (value) {
             var ser = "Make Up";
@@ -633,8 +622,8 @@ $(function () {
                     date: date
                 };
 
-                $editTime.removeAttr('disabled');
-                $confirmTime.removeAttr('disabled');
+                // $editTime.removeAttr('disabled');
+                // $confirmTime.removeAttr('disabled');
 
                 $.ajax({
                         url: '/registration/getBusyTimesForService ',
