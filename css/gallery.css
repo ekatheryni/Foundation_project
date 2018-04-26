@@ -8,3 +8,9 @@
     display: inline-block;
     width: 33%;
 }
+
+@media screen and (max-width: 905px) {
+    .gallery-photo img{
+
+    }
+}

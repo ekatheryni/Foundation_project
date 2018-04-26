@@ -24,52 +24,54 @@ $(function () {
 
     //DATE-TIME-PICKER
 
-    var logic = function (currentDateTime) {
-        // 'this' is jquery object datetimepicker
-        if (currentDateTime.getDay() == 6 || currentDateTime.getDay() == 7) {
-            this.setOptions({
-                allowTimes: [
-                    '11:00',
-                    '12:00',
-                    '13:00',
-                    '14:00',
-                    '15:00',
-                    '16:00',
-                    '17:00',
-                    '18:00',
-                    '19:00']
-            });
-        } else
-            this.setOptions({
-                allowTimes: [
-                    '8:00',
-                    '9:00',
-                    '10:00',
-                    '11:00',
-                    '12:00',
-                    '13:00',
-                    '14:00',
-                    '15:00',
-                    '16:00',
-                    '17:00',
-                    '18:00',
-                    '19:00',
-                    '20:00',
-                    '21:00']
-            });
-    };
+    var allowTime = [
+        '9:00',
+        '10:00',
+        '11:00',
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+        '18:00',
+        '19:00',
+        '20:00',
+        '21:00'];
+
+    function setTime(allow, disable) {
+        disable.forEach(function (value) {
+            var index = allow.indexOf(value);
+            if (index > -1) {
+                allow.splice(index, 1);
+            }
+        });
+        return allow;
+    }
+
+    // var logic = function (currentDateTime) {
+    //     // 'this' is jquery object datetimepicker
+    //     if (currentDateTime.getDay() == 6 || currentDateTime.getDay() == 7) {
+    //         this.setOptions({
+    //             allowTimes: allowTimeWeekend
+    //         });
+    //     } else
+    //         this.setOptions({
+    //             allowTimes: allowTimeWorking
+    //         });
+    // };
 
     var $filterDate = $('#filter-date');
     var $filterTime = $('#filter-time');
 
     $filterDate.datetimepicker({
-        onChangeDateTime: logic,
-        onShow: logic,
+        // onChangeDateTime: logic,
+        // onShow: logic,
         dayOfWeekStart: 1,
         minDate: '+1970/01/01',
         maxDate: '+1970/02/02',
         timepicker: false,
-        format: 'Y/m/d'
+        format: 'Y-m-d'
     });
 
     //DATE-TIME-PICKER END!
@@ -319,9 +321,20 @@ $(function () {
                             if (data == true) {
                                 $filterTime.removeAttr('disabled');
 
+                                // var logic = function (currentDateTime) {
+                                //     // 'this' is jquery object datetimepicker
+                                //     if (currentDateTime.getDay() == 6 || currentDateTime.getDay() == 7) {
+                                //         this.setOptions({
+                                //             allowTimes: setTime(allowTimeWeekend, data)
+                                //         });
+                                //     } else
+                                //         this.setOptions({
+                                //             allowTimes: setTime(allowTime, data)
+                                //         });
+                                // };
+
                                 $filterTime.datetimepicker({
-                                    onChangeDateTime: logic,
-                                    onShow: logic,
+                                    allowTimes: setTime(allowTime, data),
                                     datepicker: false,
                                     format: 'H:i'
                                 });
@@ -407,6 +420,19 @@ $(function () {
                 }
             ]
         };
+        data.makeUp.sort(function(a, b) {
+            var valueA, valueB;
+
+            valueA = a[1]; // Where 1 is your index, from your example
+            valueB = b[1];
+            if (valueA < valueB) {
+                return -1;
+            }
+            else if (valueA > valueB) {
+                return 1;
+            }
+            return 0;
+        });
 
         data.makeUp.forEach(function (value) {
             var ser = "Make Up";
@@ -415,8 +441,8 @@ $(function () {
             var space = " ";
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
                 "                        <div class=\"edit-options\">\n" +
-                "                            <span class=\"service-ed\">" + ser + "</span>\n" +
-                "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "                            <div class=\"service-ed\">" + ser + "</div>\n" +
+                "                            <div class=\"data-edit\">" + date + space + time + "</div>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
                 "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
@@ -447,8 +473,8 @@ $(function () {
             var space = " ";
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
                 "                        <div class=\"edit-options\">\n" +
-                "                            <span class=\"service-ed\">" + ser + "</span>\n" +
-                "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "                            <div class=\"service-ed\">" + ser + "</div>\n" +
+                "                            <div class=\"data-edit\">" + date + space + time + "</div>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
                 "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
@@ -479,8 +505,8 @@ $(function () {
             var space = " ";
             $('#booking-list').append("<div class=\"one-reservation\">\n" +
                 "                        <div class=\"edit-options\">\n" +
-                "                            <span class=\"service-ed\">" + ser + "</span>\n" +
-                "                            <span class=\"data-edit\">" + date + space + time + "</span>\n" +
+                "                            <div class=\"service-ed\">" + ser + "</div>\n" +
+                "                            <div class=\"data-edit\">" + date + space + time + "</div>\n" +
                 "                            <div class=\"edit-icons\">\n" +
                 "                                <button class=\"ed-icon\"><i class=\"step fi-pencil size-21\"></i></button>\n" +
                 "                                <button class=\"del-icon\"><i class=\"step fi-x size-21\"></i></button>\n" +
@@ -574,10 +600,10 @@ $(function () {
 
 
     $bookingList.on('click', '.ed-icon', function () {
-        var $newEdit = $(this).parent().parent().siblings('.new-edit');
-        if ($newEdit.hasClass("is-hidden")) {
+        //var $newEdit = $(this).parent().parent().siblings('.new-edit');
+        if ($(this).parent().parent().siblings('.new-edit').hasClass("is-hidden")) {
 
-            $newEdit.removeClass("is-hidden");
+            $(this).parent().parent().siblings('.new-edit').removeClass("is-hidden");
 
             var service = $(this).parent().siblings('.service-ed').text();
             var date = $(this).parent().siblings('.data-edit').text();
@@ -585,21 +611,21 @@ $(function () {
             var oldTime = date.substr(11, 16);
             console.log("EDIT " + service + " " + oldDate + " " + oldTime);
 
-            var $editDate = $newEdit.find("#filter-date-edit");
-            var $editTime = $newEdit.find("#filter-time-edit");
-            var $confirmTime = $newEdit.find('#confirm-time-edit');
+            var $editDate = $(this).parent().parent().siblings('.new-edit').find("#filter-date-edit");
+            var $editTime = $(this).parent().parent().siblings('.new-edit').find("#filter-time-edit");
+            var $confirmTime = $(this).parent().parent().siblings('.new-edit').find('#confirm-time-edit');
 
 
             $editDate.datetimepicker({
-                onChangeDateTime: logic,
-                onShow: logic,
+                // onChangeDateTime: logic,
+                // onShow: logic,
                 minDate: '+1970/01/01',
                 maxDate: '+1970/02/02',
                 timepicker: false,
                 format: 'Y/m/d'
             });
 
-            var $checkBut = $newEdit.find('#confirm-date-edit');
+            var $checkBut = $(this).parent().parent().siblings('.new-edit').find('#confirm-date-edit');
             $checkBut.click(function () {
                 var data = {
                     email: email,
@@ -621,9 +647,20 @@ $(function () {
                                 $editTime.removeAttr('disabled');
                                 $confirmTime.removeAttr('disabled');
 
+                                // var logic = function (currentDateTime) {
+                                //     // 'this' is jquery object datetimepicker
+                                //     if (currentDateTime.getDay() == 6 || currentDateTime.getDay() == 7) {
+                                //         this.setOptions({
+                                //             allowTimes: setTime(allowTimeWeekend, data)
+                                //         });
+                                //     } else
+                                //         this.setOptions({
+                                //             allowTimes: setTime(allowTime, data)
+                                //         });
+                                // };
+
                                 $editTime.datetimepicker({
-                                    onChangeDateTime: logic,
-                                    onShow: logic,
+                                    allowTimes: setTime(allowTime, data),
                                     datepicker: false,
                                     format: 'H:i'
                                 });

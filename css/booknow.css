@@ -123,11 +123,15 @@
 }
 
 .service-ed {
+    display: inline-block;
+    width: 30%;
     padding-left: 10px;
-    padding-right: 55px;
+    /* padding-right: 55px;*/
 }
 
 .data-edit {
+    display: inline-block;
+    width: 50%;
     padding-right: 85px;
 }
 
@@ -140,9 +144,9 @@
 }
 
 .edit-icons {
-    display: inline;
+    display: inline-block;
     text-align: right;
-    margin: auto;
+    padding-left: 5%;
 }
 
 .services-menu-inside .isChosen {
